@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@araclx/husky-config@^0.0.12":
+"@araclx/husky-config@0.0.12":
   version "0.0.12"
   resolved "https://registry.yarnpkg.com/@araclx/husky-config/-/husky-config-0.0.12.tgz#caf90bfdc861a80b968ec4374eb73a1b7c3471f1"
   integrity sha512-6jMv4hTxbp6W6lCUOEOmj+Zz8NR0wReRZawub4UGWhea++6gjEbN1s1i09UeqK3galh3GArCVT/TWYXdU6IuHg==
@@ -13,14 +13,14 @@
     husky "^4.2.5"
     precise-commits "^1.0.2"
 
-"@araclx/prettier-config@^0.0.11":
+"@araclx/prettier-config@0.0.11":
   version "0.0.11"
   resolved "https://registry.yarnpkg.com/@araclx/prettier-config/-/prettier-config-0.0.11.tgz#610d62444ac8c540a35bc3cec013fdf9b3f4fdc8"
   integrity sha512-SF+tl1FmuXqBFnjdhxwA3YjhZT8Jj5FOgf1Wrr35PXoI4NpklAA3SJHQl/xIenOeekyXNvEMmywrd4u7NjuiZw==
   dependencies:
     prettier "^2.0.5"
 
-"@araclx/semantic-release@^0.1.6-alpha.0":
+"@araclx/semantic-release@0.1.6-alpha.0":
   version "0.1.6-alpha.0"
   resolved "https://registry.yarnpkg.com/@araclx/semantic-release/-/semantic-release-0.1.6-alpha.0.tgz#8b60ad1392b237980c0b86f59babf63adc2034f4"
   integrity sha512-nqzuEgSW+A9OzsmOZLWI/Fu6Sxy83iLEkWAkB3uXk0p/rdbkJp3bKNfbu+zWRudmq1VzZ2UL7kARlIRgFab0hw==
@@ -33,7 +33,7 @@
     "@semantic-release/release-notes-generator" "^9.0.1"
     commitizen "^4.1.2"
 
-"@araclx/xo-config@^0.0.1-alpha.0":
+"@araclx/xo-config@0.0.1-alpha.0":
   version "0.0.1-alpha.0"
   resolved "https://registry.yarnpkg.com/@araclx/xo-config/-/xo-config-0.0.1-alpha.0.tgz#0c6a4b0f27c798a7c7db030b03473241d2b0024a"
   integrity sha512-SWDLUcNFO4X2JVYSOL5ghRKIYJaWp6FJDthc5E+sgBYksdEPHsnX8Oc9D2EICjslbgiVLieevBdghe0l6JqSnw==
@@ -3592,7 +3592,7 @@ humanize-ms@^1.2.1:
   dependencies:
     ms "^2.0.0"
 
-husky@^4.2.5:
+husky@4.2.5, husky@^4.2.5:
   version "4.2.5"
   resolved "https://registry.yarnpkg.com/husky/-/husky-4.2.5.tgz#2b4f7622673a71579f901d9885ed448394b5fa36"
   integrity sha512-SYZ95AjKcX7goYVZtVZF2i6XiZcHknw50iXvY7b0MiGoj5RwdgRQNEHdb+gPDPCXKlzwrybjFjkL6FOj8uRhZQ==
@@ -6079,7 +6079,7 @@ prettier@2.0.4:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.0.4.tgz#2d1bae173e355996ee355ec9830a7a1ee05457ef"
   integrity sha512-SVJIQ51spzFDvh4fIbCLvciiDMCrRhlN3mbZvv/+ycjvmF5E73bKdGfU8QDLNmjYJf+lsGnDBC4UUnvTe5OO0w==
 
-prettier@^2.0.5:
+prettier@2.0.5, prettier@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.0.5.tgz#d6d56282455243f2f92cc1716692c08aa31522d4"
   integrity sha512-7PtVymN48hGcO4fGjybyBSIWDsLU4H4XlvOHfq91pz9kkGlonzwTfYkaIEwiRg/dAJF9YlbsduBAgtYLi+8cFg==
@@ -6718,7 +6718,7 @@ safe-regex@^2.1.1:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-semantic-release@^17.1.1:
+semantic-release@17.1.1:
   version "17.1.1"
   resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-17.1.1.tgz#d9775968e841b2b7c5020559e4481aea8520ca75"
   integrity sha512-9H+207eynBJElrQBHySZm+sIEoJeUhPA2zU4cdlY1QSInd2lnE8GRD2ALry9EassE22c9WW+aCREwBhro5AIIg==
@@ -7978,7 +7978,7 @@ xdg-basedir@^4.0.0:
   resolved "https://registry.yarnpkg.com/xdg-basedir/-/xdg-basedir-4.0.0.tgz#4bc8d9984403696225ef83a1573cbbcb4e79db13"
   integrity sha512-PSNhEJDejZYV7h50BohL09Er9VaIefr2LMAf3OEmpCkjOi34eYyQYAXUTjEQtZJTKcF0E2UKTh+osDLsgNim9Q==
 
-xo@^0.32.1:
+xo@0.32.1:
   version "0.32.1"
   resolved "https://registry.yarnpkg.com/xo/-/xo-0.32.1.tgz#8fbe08779cf559a0a1e959877644661e40ce175e"
   integrity sha512-L43ROY2opNW7yp7byEAibBSk0jYvMuC4yUUrphkqegqU76Bxp5Rc+Gcl62lK1f5zuRrlY0IwMypIfY4EPSzMfQ==
