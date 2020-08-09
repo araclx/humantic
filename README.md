@@ -1,7 +1,6 @@
-# noddy
+# humantic
 
-Noddy is no-code repository boilerplate which implements complete set of linters from @araclx for building TypeScript
-applications.
+Platform designed for developers to find a perfectly matched job with their profile backed by AI. Generally can be considered as a fair UpWork alternative.
 
 ## Usage
 
@@ -11,9 +10,7 @@ applications.
 
 ## Contributing
 
-The main purpose of this repository is to continue to evolve advanced boilerplate of new applications, making it faster
-and easier to use. Development of Aeropods happens in the open on GitHub, and we are grateful to the community for
-contributing bugfixes and improvements. Read below to learn how you can take part in improving Aeropods.
+...
 
 ### [Code of Conduct](./CODE_OF_CONDUCT.md)
 
