@@ -1,12 +1,16 @@
 {
-	"name": "@araclx/noddy",
+	"name": "@araclx/humantic",
 	"version": "1.0.0",
 	"description": "No-code repository considered as a bare template for TypeScript applications, which includes code-related things such as linters, documentation, and other shit that you setup in every new repository. ",
 	"main": "index.js",
-	"repository": "https://github.com/ARACLX/noddy.git",
+	"repository": "https://github.com/ARACLX/humantic.git",
 	"author": "Jakub Olan <jakub.olan001@gmail.com>",
 	"license": "MIT",
 	"private": true,
+  "scripts": {
+    "postinstall": "lerna bootstrap",
+    "test": "lerna run test"
+  },
 	"devDependencies": {
 		"@araclx/husky-config": "0.0.12",
 		"@araclx/prettier-config": "0.0.11",

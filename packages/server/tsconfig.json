@@ -1,0 +1,7 @@
+{
+	"extends": "@araclx/tsconfig",
+	"compilerOptions": {
+		"target": "ES2018",
+		"lib": ["ES2018"]
+	}
+}
