@@ -9,10 +9,11 @@
 	"private": true,
 	"scripts": {
 		"postinstall": "lerna bootstrap",
-		"test": "lerna run test"
+		"test": "lerna run test",
+		"start:dev": "lerna run start:dev --parallel --no-bail"
 	},
 	"devDependencies": {
-		"@araclx/husky-config": "0.0.12",
+		"@araclx/husky-config": "^0.0.13",
 		"@araclx/prettier-config": "0.0.11",
 		"@araclx/semantic-release": "0.1.6-alpha.0",
 		"@araclx/xo-config": "0.0.1-alpha.0",

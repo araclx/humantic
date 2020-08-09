@@ -15,49 +15,49 @@ import mongo from './modules/mongoose'
 import { ProjectRouter } from './services'
 
 Sentry.init({
-  dsn: SENTRY_DSN,
+	dsn: SENTRY_DSN,
 })
 
 export class Server {
-  public app: Application
+	public app: Application
 
-  constructor() {
-    this.app = express()
-    this.middleware()
-    this.routing()
-    this.errorHandling()
-    this.database()
-  }
+	constructor() {
+		this.app = express()
+		this.middleware()
+		this.routing()
+		this.errorHandling()
+		this.database()
+	}
 
-  public middleware() {
-    this.app.use(Sentry.Handlers.requestHandler())
-    this.app.use(express.json())
-    this.app.use(express.urlencoded({ extended: false }))
-    this.app.use(cors())
-    this.app.use(compression())
-    this.app.use(morgan('dev'))
-  }
+	public async runtime(): Promise<void> {
+		const ENVPORT = 3600
+		const PORT = await getport({
+			port: ENVPORT,
+		})
+		this.app.listen(PORT, () => {
+			signale.success(`Application started on http://localhost:${PORT}`)
+		})
+	}
 
-  public routing() {
-    this.app.use('/', new ProjectRouter().router)
-  }
+	private middleware() {
+		this.app.use(Sentry.Handlers.requestHandler())
+		this.app.use(express.json())
+		this.app.use(express.urlencoded({ extended: false }))
+		this.app.use(cors())
+		this.app.use(compression())
+		this.app.use(morgan('dev'))
+	}
 
-  private errorHandling() {
-    this.app.use(Sentry.Handlers.errorHandler())
-    this.app.use(errorhandler())
-  }
+	private routing() {
+		this.app.use('/', new ProjectRouter().router)
+	}
 
-  private database() {
-    mongo().catch((e) => signale.error(e))
-  }
+	private errorHandling() {
+		this.app.use(Sentry.Handlers.errorHandler())
+		this.app.use(errorhandler())
+	}
 
-  public async runtime() {
-    const ENVPORT: number = parseInt(process.env.PORT!) || 3600
-    const PORT = await getport({
-      port: ENVPORT,
-    })
-    this.app.listen(PORT, () => {
-      signale.success(`Application started on http://localhost:${PORT}`)
-    })
-  }
+	private database() {
+		mongo().catch((error) => signale.error(error))
+	}
 }

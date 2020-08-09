@@ -2,16 +2,18 @@
 # yarn lockfile v1
 
 
-"@araclx/husky-config@0.0.12":
-  version "0.0.12"
-  resolved "https://registry.yarnpkg.com/@araclx/husky-config/-/husky-config-0.0.12.tgz#caf90bfdc861a80b968ec4374eb73a1b7c3471f1"
-  integrity sha512-6jMv4hTxbp6W6lCUOEOmj+Zz8NR0wReRZawub4UGWhea++6gjEbN1s1i09UeqK3galh3GArCVT/TWYXdU6IuHg==
+"@araclx/husky-config@^0.0.13":
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/@araclx/husky-config/-/husky-config-0.0.13.tgz#5a41178ca22f09af7846485ecb2337b9e79545c7"
+  integrity sha512-ZRtGzzLvPquvWbfda9M3AKTBzd2smhDXUJjfOlAtN0brhEcJhluzm++W1thAjrvxUGAAhPfWo3uJeYAK1ltSWg==
   dependencies:
+    "@araclx/xo-config" "^0.0.1"
     "@commitlint/cli" "^9.1.1"
     "@commitlint/config-conventional" "^9.1.1"
     eslint "^7.5.0"
     husky "^4.2.5"
     precise-commits "^1.0.2"
+    xo "^0.32.1"
 
 "@araclx/prettier-config@0.0.11":
   version "0.0.11"
@@ -37,6 +39,11 @@
   version "0.0.1-alpha.0"
   resolved "https://registry.yarnpkg.com/@araclx/xo-config/-/xo-config-0.0.1-alpha.0.tgz#0c6a4b0f27c798a7c7db030b03473241d2b0024a"
   integrity sha512-SWDLUcNFO4X2JVYSOL5ghRKIYJaWp6FJDthc5E+sgBYksdEPHsnX8Oc9D2EICjslbgiVLieevBdghe0l6JqSnw==
+
+"@araclx/xo-config@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@araclx/xo-config/-/xo-config-0.0.1.tgz#97af113cb98dba0117fed380373656a0dc078a7e"
+  integrity sha512-xkzVp539/3t7fZ5MRCuk97CiY4G0kA9nT/YrbsbNaI097OzgKzrvxlwKcHDAmO9a0sctmwwI62/cBDIBhkeWaA==
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4":
   version "7.10.4"
@@ -9499,7 +9506,7 @@ xdg-basedir@^4.0.0:
   resolved "https://registry.yarnpkg.com/xdg-basedir/-/xdg-basedir-4.0.0.tgz#4bc8d9984403696225ef83a1573cbbcb4e79db13"
   integrity sha512-PSNhEJDejZYV7h50BohL09Er9VaIefr2LMAf3OEmpCkjOi34eYyQYAXUTjEQtZJTKcF0E2UKTh+osDLsgNim9Q==
 
-xo@0.32.1:
+xo@0.32.1, xo@^0.32.1:
   version "0.32.1"
   resolved "https://registry.yarnpkg.com/xo/-/xo-0.32.1.tgz#8fbe08779cf559a0a1e959877644661e40ce175e"
   integrity sha512-L43ROY2opNW7yp7byEAibBSk0jYvMuC4yUUrphkqegqU76Bxp5Rc+Gcl62lK1f5zuRrlY0IwMypIfY4EPSzMfQ==
