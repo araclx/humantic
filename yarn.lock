@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@araclx/husky-config@^0.0.13":
+"@araclx/husky-config@0.0.13":
   version "0.0.13"
   resolved "https://registry.yarnpkg.com/@araclx/husky-config/-/husky-config-0.0.13.tgz#5a41178ca22f09af7846485ecb2337b9e79545c7"
   integrity sha512-ZRtGzzLvPquvWbfda9M3AKTBzd2smhDXUJjfOlAtN0brhEcJhluzm++W1thAjrvxUGAAhPfWo3uJeYAK1ltSWg==
@@ -3494,7 +3494,7 @@ eslint-plugin-node@^11.1.0:
     resolve "^1.10.1"
     semver "^6.1.0"
 
-eslint-plugin-prettier@^3.1.3, eslint-plugin-prettier@^3.1.4:
+eslint-plugin-prettier@3.1.4, eslint-plugin-prettier@^3.1.3:
   version "3.1.4"
   resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-3.1.4.tgz#168ab43154e2ea57db992a2cd097c828171f75c2"
   integrity sha512-jZDa8z76klRqo+TdGDTFJSavwbnWK2ZpqGKNZ+VvweMW516pDUMmQ2koXvxEE4JhzNvTv+radye/bWGBmA6jmg==
@@ -5463,7 +5463,7 @@ lcid@^1.0.0:
   dependencies:
     invert-kv "^1.0.0"
 
-lerna@^3.22.1:
+lerna@3.22.1:
   version "3.22.1"
   resolved "https://registry.yarnpkg.com/lerna/-/lerna-3.22.1.tgz#82027ac3da9c627fd8bf02ccfeff806a98e65b62"
   integrity sha512-vk1lfVRFm+UuEFA7wkLKeSF7Iz13W+N/vFd48aW2yuS7Kv0RbNm2/qcDPV863056LMfkRlsEe+QYOw3palj5Lg==

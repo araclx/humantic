@@ -30,8 +30,8 @@
     "typeorm": "0.2.25"
   },
   "devDependencies": {
-    "@araclx/tsconfig": "^0.0.11",
-    "@ava/typescript": "^1.1.1",
+    "@araclx/tsconfig": "0.0.11",
+    "@ava/typescript": "1.1.1",
     "@types/body-parser": "1.19.0",
     "@types/compression": "1.7.0",
     "@types/cors": "2.8.7",
@@ -42,18 +42,18 @@
     "@types/nodemon": "1.19.0",
     "@types/prettier": "2.0.2",
     "@types/signale": "1.4.1",
-    "@types/test-listen": "^1.1.0",
-    "ava": "^3.11.1",
-    "craftpack": "^0.0.8",
-    "got": "^11.5.1",
-    "mongomem": "^0.1.9",
+    "@types/test-listen": "1.1.0",
+    "ava": "3.11.1",
+    "craftpack": "0.0.8",
+    "got": "11.5.2",
+    "mongomem": "0.1.9",
     "nodemon": "2.0.4",
-    "nyc": "^15.1.0",
+    "nyc": "15.1.0",
     "pm2": "4.4.0",
-    "test-listen": "^1.1.0",
+    "test-listen": "1.1.0",
     "ts-node": "8.10.2",
     "typescript": "3.9.7",
-    "webpack": "^4.44.1"
+    "webpack": "4.44.1"
   },
   "main": "index.js",
   "license": "MIT"
