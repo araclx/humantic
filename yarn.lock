@@ -35,12 +35,7 @@
     "@semantic-release/release-notes-generator" "^9.0.1"
     commitizen "^4.1.2"
 
-"@araclx/xo-config@0.0.1-alpha.0":
-  version "0.0.1-alpha.0"
-  resolved "https://registry.yarnpkg.com/@araclx/xo-config/-/xo-config-0.0.1-alpha.0.tgz#0c6a4b0f27c798a7c7db030b03473241d2b0024a"
-  integrity sha512-SWDLUcNFO4X2JVYSOL5ghRKIYJaWp6FJDthc5E+sgBYksdEPHsnX8Oc9D2EICjslbgiVLieevBdghe0l6JqSnw==
-
-"@araclx/xo-config@^0.0.1":
+"@araclx/xo-config@0.0.1", "@araclx/xo-config@^0.0.1":
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/@araclx/xo-config/-/xo-config-0.0.1.tgz#97af113cb98dba0117fed380373656a0dc078a7e"
   integrity sha512-xkzVp539/3t7fZ5MRCuk97CiY4G0kA9nT/YrbsbNaI097OzgKzrvxlwKcHDAmO9a0sctmwwI62/cBDIBhkeWaA==
