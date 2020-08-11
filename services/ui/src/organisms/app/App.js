@@ -1,6 +1,9 @@
 import React from 'react'
 import logo from './logo.svg'
 import './App.css'
+import LoginButton from '../../molecules/login.molecule'
+import LogoutButton from '../../molecules/logout.molecule'
+import Profile from '../../molecules/profile.molecule'
 
 function App() {
 	return (
@@ -8,8 +11,11 @@ function App() {
 			<header className='App-header'>
 				<img src={logo} className='App-logo' alt='logo' />
 				<p>
-					Edit <code>src/App.tsx</code> and save to reload.
+					Edit <code>src/App.js</code> and save to reload.
 				</p>
+				<Profile></Profile>
+				<LoginButton></LoginButton>
+				<LogoutButton></LogoutButton>
 				<a className='App-link' href='https://reactjs.org' target='_blank' rel='noopener noreferrer'>
 					Learn React
 				</a>
