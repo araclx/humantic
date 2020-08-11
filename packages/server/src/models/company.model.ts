@@ -1,0 +1,3 @@
+interface ICompany {
+	name: string
+}

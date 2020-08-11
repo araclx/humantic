@@ -1,6 +1,7 @@
 {
 	"extends": "@araclx/tsconfig",
 	"compilerOptions": {
+        "experimentalDecorators": true,
 		"target": "ES2018",
 		"lib": ["ES2018"]
 	}

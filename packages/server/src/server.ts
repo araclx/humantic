@@ -11,8 +11,9 @@ import getport from 'get-port'
 import * as Sentry from '@sentry/node'
 import { SENTRY_DSN } from './utils/env'
 
-import mongo from './modules/mongoose'
-import { ProjectRouter } from './services'
+import mongo from './services/mongoose.service'
+
+import { ProjectRouter } from './routers/project.router'
 
 Sentry.init({
 	dsn: SENTRY_DSN,
@@ -40,6 +41,7 @@ export class Server {
 	}
 
 	private middleware() {
+		this.app.disable('x-powered-by')
 		this.app.use(Sentry.Handlers.requestHandler())
 		this.app.use(express.json())
 		this.app.use(express.urlencoded({ extended: false }))

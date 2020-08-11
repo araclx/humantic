@@ -1,5 +1,16 @@
 import mongoose from 'mongoose'
 
+interface IProject {
+	header: string
+	description: string
+	budget: number
+	deadline: Date
+	isClosed: boolean
+	closesAt: Date
+	candidates: []
+	tags: []
+}
+
 const projectSchema = new mongoose.Schema({
 	title: {
 		type: String,
