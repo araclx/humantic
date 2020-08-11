@@ -1,6 +1,6 @@
 {
 	"$schema": "http://json.schemastore.org/lerna",
-	"packages": ["packages/*"],
+	"packages": ["services/*"],
 	"version": "independent",
 	"granularPathspec": false,
 	"npmClient": "yarn",

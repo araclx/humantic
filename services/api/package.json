@@ -1,5 +1,5 @@
 {
-	"name": "@humantic/server",
+	"name": "@humantic/api",
 	"version": "0.0.1-Alpha",
 	"private": true,
 	"description": "Bare no-code repository considered as a template, which includes code-related things such as linters, documentation, and other shit that you setup in every new repository.",
