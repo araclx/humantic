@@ -11,7 +11,6 @@ export class ProjectRouter {
 	}
 
 	routes() {
-		this.router.get('/', this.controller.getProjects)
-		this.router.post('/', this.controller.createProject)
+		this.router.get('/', this.controller.helloWorld)
 	}
 }

@@ -1,4 +1,4 @@
-import { ITag } from '../interfaces/tags.interface'
+import { TechTag } from '../interfaces/tags.interface'
 
 export interface IProject {
 	/** Main title of project */
@@ -10,7 +10,7 @@ export interface IProject {
 	/** Defines a date on which project should be delivered. */
 	deadline: Date
 	/** Defines a technology needed to complete project. */
-	tags: Array<ITag>
+	tags: Array<TechTag>
 	isClosed: boolean
 	assigned: null
 	closesAt: Date
