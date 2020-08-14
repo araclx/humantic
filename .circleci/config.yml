@@ -4,20 +4,20 @@ orbs:
  node: circleci/node@4.0.0
 
 executors:
- docker:
+ node:
   docker:
-   - image: cimg/node:lts
+   - image: cimg/base:2020.01
    - image: circleci/mongo:latest
 
 jobs:
  test:
   working_directory: ~/humantic
-  executor: node/default
+  executor: node
   steps:
    - checkout
-   # - node/install:
-   #    install-yarn: true
-   #    lts: true
+   - node/install:
+      install-yarn: true
+      lts: true
    - node/install-yarn
    - run: node --version
    - run: yarn --version
