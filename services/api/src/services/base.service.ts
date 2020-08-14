@@ -9,25 +9,21 @@ import signale from 'signale'
 import getport from 'get-port'
 
 import * as Sentry from '@sentry/node'
-import { SENTRY_DSN } from './utils/env'
-
-import mongo from './services/mongoose.service'
-
-import { ProjectRouter } from './routers/project.router'
+import { SENTRY_DSN } from '../utils/env'
 
 Sentry.init({
 	dsn: SENTRY_DSN,
 })
 
-export class Server {
+export class Service {
 	public app: Application
+	public serviceName: string = 'BaseService'
 
 	constructor() {
 		this.app = express()
 		this.middleware()
 		this.routing()
 		this.errorHandling()
-		this.database()
 	}
 
 	public async runtime(): Promise<void> {
@@ -36,7 +32,7 @@ export class Server {
 			port: ENVPORT,
 		})
 		this.app.listen(PORT, () => {
-			signale.success(`Application started on http://localhost:${PORT}`)
+			signale.success(`${this.serviceName} started on http://localhost:${PORT}`)
 		})
 	}
 
@@ -50,16 +46,10 @@ export class Server {
 		this.app.use(morgan('dev'))
 	}
 
-	private routing() {
-		this.app.use('/', new ProjectRouter().router)
-	}
+	public routing() {}
 
 	private errorHandling() {
 		this.app.use(Sentry.Handlers.errorHandler())
 		this.app.use(errorhandler())
-	}
-
-	private database() {
-		mongo().catch((error) => signale.error(error))
 	}
 }
