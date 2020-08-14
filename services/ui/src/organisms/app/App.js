@@ -1,5 +1,4 @@
 import React from 'react'
-import './App.css'
 import LoginButton from '../../molecules/login.molecule'
 import LogoutButton from '../../molecules/logout.molecule'
 import Profile from '../../molecules/profile.molecule'
