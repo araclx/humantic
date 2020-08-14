@@ -1,0 +1,12 @@
+{
+	"apps": [
+		{
+			"name": "gateway",
+			"script": "dist/gateway.worker.js"
+		},
+		{
+			"name": "projects-service",
+			"script": "dist/project.worker.js"
+		}
+	]
+}

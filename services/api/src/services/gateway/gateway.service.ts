@@ -1,23 +1,22 @@
 import express, { Application } from 'express'
 
+// Express-based Middleware
 import compression from 'compression'
 import cors from 'cors'
 import morgan from 'morgan'
 import errorhandler from 'errorhandler'
 
+// Visual Utilities
 import signale from 'signale'
 import getport from 'get-port'
 
-import * as Sentry from '@sentry/node'
-import { SENTRY_DSN } from '../utils/env'
+import { sentry } from '../../modules/sentry.module'
 
-Sentry.init({
-	dsn: SENTRY_DSN,
-})
+// Project-wide Routers for other services
+import { ProjectServiceRouter } from '../project/project.router'
 
-export class Service {
+export class GatewayService {
 	public app: Application
-	public serviceName: string = 'BaseService'
 
 	constructor() {
 		this.app = express()
@@ -26,19 +25,21 @@ export class Service {
 		this.errorHandling()
 	}
 
-	public async runtime(): Promise<void> {
+	/** Starts a worker function. */
+	public async worker(): Promise<void> {
 		const ENVPORT = 3600
 		const PORT = await getport({
 			port: ENVPORT,
 		})
 		this.app.listen(PORT, () => {
-			signale.success(`${this.serviceName} started on http://localhost:${PORT}`)
+			signale.success(`API Gateway started on http://localhost:${PORT}`)
 		})
 	}
 
+	/** Global configuration of middlewares. */
 	private middleware() {
 		this.app.disable('x-powered-by')
-		this.app.use(Sentry.Handlers.requestHandler())
+		this.app.use(sentry.Handlers.requestHandler())
 		this.app.use(express.json())
 		this.app.use(express.urlencoded({ extended: false }))
 		this.app.use(cors())
@@ -46,10 +47,14 @@ export class Service {
 		this.app.use(morgan('dev'))
 	}
 
-	public routing() {}
+	public routing() {
+		this.app.use('/', new ProjectServiceRouter().router)
+	}
 
 	private errorHandling() {
-		this.app.use(Sentry.Handlers.errorHandler())
+		this.app.use(sentry.Handlers.errorHandler())
 		this.app.use(errorhandler())
 	}
 }
+
+new GatewayService().worker()

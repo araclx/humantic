@@ -1,29 +1,14 @@
 import cote from 'cote'
-import express from 'express'
-import bodyParser from 'body-parser'
 
-import { Service } from '../base.service'
+const projectResponder = new cote.Responder({
+	name: 'project responder',
+	key: 'projects',
+})
 
-export class ProjectService extends Service {
-	public serviceName = 'ProjectService'
+projectResponder.on('*', (req) => console.log(req))
 
-	#responder = new cote.Responder({
-		name: 'project responder',
-		key: 'project',
-	})
+const sampleData = ['Hello']
 
-	constructor() {
-		super()
-		this.responder()
-	}
-
-	async responder() {
-		this.#responder.on('*', console.log)
-	}
-
-	routing() {
-		this.app.use('/', async function (req, res) {
-			res.json('Hello World')
-		})
-	}
-}
+projectResponder.on('list', (req) => {
+	return Promise.resolve(sampleData)
+})
