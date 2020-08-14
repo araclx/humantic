@@ -8,6 +8,7 @@
 	"license": "MIT",
 	"private": true,
 	"scripts": {
+		"build": "lerna run build",
 		"postinstall": "lerna bootstrap",
 		"test": "lerna run test",
 		"start:dev": "lerna run start:dev --parallel --no-bail"
