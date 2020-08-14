@@ -1,25 +1,21 @@
 import express, { Application } from 'express'
 
+// Express-based Middleware
 import compression from 'compression'
 import cors from 'cors'
 import morgan from 'morgan'
 import errorhandler from 'errorhandler'
 
+// Visual Utilities
 import signale from 'signale'
 import getport from 'get-port'
 
-import * as Sentry from '@sentry/node'
-import { SENTRY_DSN } from './utils/env'
+import { sentry } from '../../modules/sentry.module'
 
-import mongo from './services/mongoose.service'
+// Project-wide Routers for other services
+import { ProjectServiceRouter } from '../project/project.router'
 
-import { ProjectRouter } from './routers/project.router'
-
-Sentry.init({
-	dsn: SENTRY_DSN,
-})
-
-export class Server {
+export class GatewayService {
 	public app: Application
 
 	constructor() {
@@ -27,22 +23,23 @@ export class Server {
 		this.middleware()
 		this.routing()
 		this.errorHandling()
-		this.database()
 	}
 
-	public async runtime(): Promise<void> {
+	/** Starts a worker function. */
+	public async worker(): Promise<void> {
 		const ENVPORT = 3600
 		const PORT = await getport({
 			port: ENVPORT,
 		})
 		this.app.listen(PORT, () => {
-			signale.success(`Application started on http://localhost:${PORT}`)
+			signale.success(`API Gateway started on http://localhost:${PORT}`)
 		})
 	}
 
+	/** Global configuration of middlewares. */
 	private middleware() {
 		this.app.disable('x-powered-by')
-		this.app.use(Sentry.Handlers.requestHandler())
+		this.app.use(sentry.Handlers.requestHandler())
 		this.app.use(express.json())
 		this.app.use(express.urlencoded({ extended: false }))
 		this.app.use(cors())
@@ -50,16 +47,14 @@ export class Server {
 		this.app.use(morgan('dev'))
 	}
 
-	private routing() {
-		this.app.use('/', new ProjectRouter().router)
+	public routing() {
+		this.app.use('/', new ProjectServiceRouter().router)
 	}
 
 	private errorHandling() {
-		this.app.use(Sentry.Handlers.errorHandler())
+		this.app.use(sentry.Handlers.errorHandler())
 		this.app.use(errorhandler())
 	}
-
-	private database() {
-		mongo().catch((error) => signale.error(error))
-	}
 }
+
+new GatewayService().worker()
