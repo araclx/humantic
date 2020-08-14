@@ -17,7 +17,7 @@ jobs:
    - checkout
    - node/install:
       install-yarn: true
-      node-version: lts
+      lts: true
    - run: node --version
    - run: yarn --version
    - node/install-packages:
