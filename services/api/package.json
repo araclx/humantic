@@ -27,7 +27,7 @@
 		"express-jwt": "^6.0.0",
 		"get-port": "5.1.1",
 		"jwks-rsa": "^1.8.1",
-		"mongoose": "5.9.28",
+		"mongoose": "5.10.0",
 		"morgan": "1.10.0",
 		"signale": "1.4.0"
 	},
