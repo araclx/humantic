@@ -1,4 +1,4 @@
-import { TechTag } from '../interfaces/tags.interface'
+import { TechTag } from './tags.interface'
 
 export interface IProject {
 	/** Main title of project */
