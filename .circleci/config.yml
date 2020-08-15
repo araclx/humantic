@@ -10,7 +10,7 @@ executors:
    - image: circleci/mongo:latest
 
 jobs:
- test:
+ build:
   working_directory: ~/humantic
   executor: node
   steps:
@@ -28,6 +28,6 @@ jobs:
    - run: yarn build
 
 workflows:
- test:
+ build:
   jobs:
-   - test
+   - build
