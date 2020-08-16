@@ -11,7 +11,7 @@
 	},
 	"scripts": {
 		"build": "webpack",
-		"start": "ts-node src/worker.ts",
+		"start": "pm2 start cluster.json",
 		"test": "ava",
 		"start:dev": "nodemon"
 	},

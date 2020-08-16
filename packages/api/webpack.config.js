@@ -7,7 +7,7 @@ module.exports = configure({
 		path: path.join(__dirname, 'dist'),
 	},
 	entry: {
-		project: path.join(__dirname, 'src', 'services', 'project', 'project.service.ts'),
-		gateway: path.join(__dirname, 'src', 'services', 'gateway', 'gateway.service.ts'),
+		project: path.join(__dirname, 'services', 'project', 'project.service.ts'),
+		gateway: path.join(__dirname, 'services', 'gateway', 'gateway.service.ts'),
 	},
 })
