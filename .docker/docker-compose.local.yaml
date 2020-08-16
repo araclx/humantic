@@ -1,6 +1,27 @@
 version: '3.8'
+
 services:
- db:
+ # Loadbalancer for API Gateway
+ loadbalancer:
+  image: haproxy
+  ports:
+   - 80:80
+   - 443:443
+  volumes:
+   - /var/run/docker.sock:/var/run/docker.sock
+  links:
+   - gateway
+
+ gateway:
+  build:
+   context: ../packages/api
+   dockerfile: Dockerfile
+  command: dist/gateway.worker.js
+  image: humantic/gateway
+  ports:
+   - 3600:3600
+
+ mongodb:
   container_name: humantic-mongodb
   image: mongo
   ports:
