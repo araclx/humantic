@@ -6,7 +6,7 @@ services:
  ui:
   container_name: humantic-ui
   build:
-   context: ../packages/ui
+   context: ../packages/ui-service
    dockerfile: .docker/Dockerfile
   image: humanitc/ui
   ports:
@@ -15,9 +15,8 @@ services:
  gateway:
   container_name: humantic-gateway
   build:
-   context: ../packages/api
+   context: ../packages/gateway-service
    dockerfile: .docker/Dockerfile
-  command: dist/gateway.worker.js
   image: humantic/gateway
   ports:
    - 3600:3600
@@ -25,10 +24,9 @@ services:
  project-service:
   container_name: humantic-projects
   build:
-   context: ../packages/api
+   context: ../packages/project-service
    dockerfile: .docker/Dockerfile
   image: humantic/project-service
-  command: dist/project.worker.js
 
  mongodb:
   container_name: humantic-mongodb

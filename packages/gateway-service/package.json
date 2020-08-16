@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"license": "MIT",
 	"dependencies": {
+		"@araclx/tsconfig": "^0.0.11",
 		"@humantic/project-service": "^1.0.0",
 		"@humantic/shared": "^0.0.1",
 		"body-parser": "1.19.0",

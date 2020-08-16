@@ -10,6 +10,7 @@
 	"license": "MIT",
 	"private": true,
 	"dependencies": {
+		"@araclx/tsconfig": "^0.0.11",
 		"@sentry/node": "5.20.1",
 		"body-parser": "1.19.0",
 		"compression": "1.7.4",
@@ -26,7 +27,6 @@
 		"signale": "1.4.0"
 	},
 	"devDependencies": {
-		"@araclx/tsconfig": "0.0.11",
 		"@ava/typescript": "1.1.1",
 		"@types/body-parser": "1.19.0",
 		"@types/compression": "1.7.0",

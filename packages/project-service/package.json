@@ -5,10 +5,8 @@
 	"main": "index.js",
 	"license": "MIT",
 	"dependencies": {
+		"@araclx/tsconfig": "^0.0.11",
 		"@humantic/shared": "^0.0.1",
-		"code": "^5.2.4"
-	},
-	"devDependencies": {
-		"@types/code": "^4.0.5"
+		"cote": "^1.0.0"
 	}
 }

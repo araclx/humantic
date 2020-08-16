@@ -3,6 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
+		"@araclx/tsconfig": "^0.0.11",
 		"@auth0/auth0-react": "1.0.0",
 		"@humantic/shared": "^0.0.1",
 		"@testing-library/jest-dom": "4.2.4",

@@ -9,7 +9,7 @@
 	"private": true,
 	"scripts": {
 		"build": "lerna run build",
-		"postinstall": "lerna bootstrap",
+		"postinstall": "lerna bootstrap --ignore-prepublish",
 		"test": "lerna run test",
 		"start:dev": "lerna run start:dev --parallel --no-bail"
 	},
