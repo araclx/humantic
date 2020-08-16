@@ -1,6 +1,6 @@
 import { TechTag } from './tags.interface'
 
-interface IPlatformExperience {
+export interface IPlatformExperience {
 	/** ProjectID releated to specific user which was assigned to project. */
 	projectId: string
 	/** Checking that User has completed an specific project. */
@@ -15,7 +15,7 @@ interface IPlatformExperience {
 	timeline: string
 }
 
-interface IPersonalExperience {
+export interface IPersonalExperience {
 	company: string
 	startedAt: Date
 	isPresent: boolean
@@ -23,14 +23,14 @@ interface IPersonalExperience {
 	description: string
 }
 
-interface IPersonalProject {
+export interface IPersonalProject {
 	name: string
 	image: string
 	url: string
 	description: string
 }
 
-interface IProfile {
+export interface IProfile {
 	firstName: string
 	lastName: string
 	slug: string

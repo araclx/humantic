@@ -6,7 +6,7 @@ considered as a fair UpWork alternative.
 ## Usage
 
 ```bash
-docker-compose -f ".docker/docker-compose.local.yaml" up -d --build
+docker-compose -f ".docker/docker-compose.local.yaml" up -d --build --remove-orphans
 yarn start:dev
 ```
 

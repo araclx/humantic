@@ -1,0 +1,14 @@
+{
+	"name": "@humantic/project-service",
+	"version": "1.0.0",
+	"description": "Microservice related to working with projects on Humantic platform.",
+	"main": "index.js",
+	"license": "MIT",
+	"dependencies": {
+		"@humantic/shared": "^0.0.1",
+		"code": "^5.2.4"
+	},
+	"devDependencies": {
+		"@types/code": "^4.0.5"
+	}
+}

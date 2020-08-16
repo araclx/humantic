@@ -10,10 +10,10 @@ import errorhandler from 'errorhandler'
 import signale from 'signale'
 import getport from 'get-port'
 
-import { sentry } from '../../modules/sentry.module'
+import { sentry } from '@humantic/shared/lib/modules/sentry.module'
 
 // Project-wide Routers for other services
-import { ProjectServiceRouter } from '../project/project.router'
+import { ProjectServiceRouter } from '@humantic/project-service/lib/project.router'
 
 export class GatewayService {
 	public app: Application
