@@ -41,12 +41,12 @@ jobs:
    - run:
       name: Authenticate with registry
       command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/humantic/.npmrc
-   # yarn.lock sometimes generates and crashes step
-   - run: echo "yarn.lock" > ~/humantic/.gitignore
    - run: yarn run lerna publish from-package -y
 
 workflows:
  build_and_publish:
   jobs:
    - build
-   - publish
+   - publish:
+      requires:
+       - build
