@@ -1,6 +1,6 @@
 {
 	"name": "@humantic/shared",
-	"version": "0.0.1",
+	"version": "0.0.2-alpha.0",
 	"description": "Shared components which can be used over all available services.",
 	"main": "lib/index.ts",
 	"files": [
