@@ -1,0 +1,35 @@
+# Production-like composefile which introduces all services related to Humantic software, this file will be compatible with Docker Swarm.
+
+version: '3.8'
+
+services:
+ ui:
+  container_name: humantic-ui
+  build:
+   context: ../packages/ui-service
+   dockerfile: .docker/Dockerfile
+  image: humanitc/ui
+  ports:
+   - 80:80
+
+ gateway:
+  container_name: humantic-gateway
+  build:
+   context: ../packages/service-gateway
+   dockerfile: .docker/Dockerfile
+  image: humantic/gateway
+  ports:
+   - 3600:3600
+
+ project-service:
+  container_name: humantic-projects
+  build:
+   context: ../packages/service-project
+   dockerfile: .docker/Dockerfile
+  image: humantic/service-project
+
+ mongodb:
+  container_name: humantic-mongodb
+  image: mongo
+  ports:
+   - 27017:27017

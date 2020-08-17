@@ -1,21 +1,16 @@
 {
-	"name": "@humantic/api",
-	"version": "0.0.1-Alpha",
-	"private": true,
-	"description": "Bare no-code repository considered as a template, which includes code-related things such as linters, documentation, and other shit that you setup in every new repository.",
-	"repository": "https://github.com/aralcx/aeropods.git",
-	"author": "Jakub Olan <jakub.olan001@gmail.com>",
-	"homepage": "https://github.com/araclx/aeropods",
-	"bugs": {
-		"url": "https://github.com/aralcx/aeropods/issues"
-	},
-	"scripts": {
-		"build": "webpack",
-		"start": "pm2 start cluster.json",
-		"test": "ava",
-		"start:dev": "nodemon"
-	},
+	"name": "@humantic/shared",
+	"version": "0.0.3-alpha.0",
+	"description": "Shared components which can be used over all available services.",
+	"private": false,
+	"main": "lib/index.ts",
+	"files": [
+		"lib"
+	],
+	"author": "Jakub Olan <jakub.jay.olan@gmail.com>",
+	"license": "MIT",
 	"dependencies": {
+		"@araclx/tsconfig": "^0.0.11",
 		"@sentry/node": "5.20.1",
 		"body-parser": "1.19.0",
 		"compression": "1.7.4",
@@ -32,7 +27,6 @@
 		"signale": "1.4.0"
 	},
 	"devDependencies": {
-		"@araclx/tsconfig": "0.0.11",
 		"@ava/typescript": "1.1.1",
 		"@types/body-parser": "1.19.0",
 		"@types/compression": "1.7.0",
@@ -58,7 +52,5 @@
 		"ts-node": "8.10.2",
 		"typescript": "3.9.7",
 		"webpack": "4.44.1"
-	},
-	"main": "index.js",
-	"license": "MIT"
+	}
 }
