@@ -37,6 +37,7 @@ jobs:
    - node/install-packages:
       app-dir: ~/humantic
       pkg-manager: yarn
+      override-ci-command: yarn --frozen-lockfile
    - run:
       name: Authenticate with registry
       command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/humantic/.npmrc

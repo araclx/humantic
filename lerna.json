@@ -14,7 +14,7 @@
 			"registry": "https://registry.npmjs.org/"
 		},
 		"bootstrap": {
-			"npmClientArgs": ["--no-package-lock"]
+			"npmClientArgs": ["--pure-lockfile", "--no-package-lock"]
 		},
 		"version": {
 			"message": "chore(release): publish",
