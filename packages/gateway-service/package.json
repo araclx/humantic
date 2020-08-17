@@ -1,14 +1,14 @@
 {
 	"name": "@humantic/gateway",
-	"version": "1.0.1-alpha.0",
+	"version": "1.0.2-alpha.0",
 	"description": "An API Gateway for Cote.js-based microservices.",
 	"main": "index.js",
 	"license": "MIT",
 	"private": false,
 	"dependencies": {
 		"@araclx/tsconfig": "^0.0.11",
-		"@humantic/project-service": "^1.0.1-alpha.0",
-		"@humantic/shared": "^0.0.2-alpha.0",
+		"@humantic/project-service": "^1.0.2-alpha.0",
+		"@humantic/shared": "^0.0.3-alpha.0",
 		"body-parser": "1.19.0",
 		"compression": "1.7.4",
 		"cors": "2.8.5",
