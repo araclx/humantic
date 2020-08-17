@@ -24,7 +24,6 @@ jobs:
    - node/install-packages:
       app-dir: ~/humantic
       pkg-manager: yarn
-   # Tempomary solution to test application as build instead functionality since there is no code to test basically.
    - run: yarn build
  publish:
   working_directory: ~/humantic
@@ -38,7 +37,11 @@ jobs:
    - node/install-packages:
       app-dir: ~/humantic
       pkg-manager: yarn
-   # Tempomary solution to test application as build instead functionality since there is no code to test basically.
+   - run:
+      name: Authenticate with registry
+      command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/humantic/.npmrc
+   # yarn.lock sometimes generates and crashes step
+   - run: echo "yarn.lock" > ~/humantic/.gitignore
    - run: yarn run lerna publish from-package -y
 
 workflows:
