@@ -1,0 +1,7 @@
+apps:
+ - script: ./packages/service-gateway/dist/index.js
+   name: 'api-gateway'
+   watch: true
+ - script: ./packages/service-project/dist/index.js
+   name: 'service-project'
+   watch: true

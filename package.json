@@ -9,9 +9,10 @@
 	"private": true,
 	"scripts": {
 		"build": "lerna run build",
+		"build:watch": "lerna run build:watch --parallel --no-bail",
+		"start": "pm2 start cluster.yaml && yarn build:watch",
 		"postinstall": "lerna bootstrap --ignore-prepublish",
-		"test": "lerna run test",
-		"start:dev": "lerna run start:dev --parallel --no-bail"
+		"test": "lerna run test"
 	},
 	"devDependencies": {
 		"@araclx/husky-config": "0.0.13",
@@ -25,6 +26,7 @@
 		"eslint-plugin-prettier": "3.1.4",
 		"husky": "4.2.5",
 		"lerna": "3.22.1",
+		"pm2": "^4.4.0",
 		"prettier": "2.0.5",
 		"semantic-release": "17.1.1",
 		"xo": "0.33.0"

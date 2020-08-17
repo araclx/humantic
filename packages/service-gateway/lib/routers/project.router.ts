@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { ProjectServiceController } from './project.controller'
+import { ProjectServiceController } from '../controllers/project.controller'
 
 export class ProjectServiceRouter {
 	public router: Router

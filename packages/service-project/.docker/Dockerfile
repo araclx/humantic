@@ -41,4 +41,4 @@ USER node
 # Application Entrypoint
 EXPOSE 3600/tcp
 ENTRYPOINT ["node"]
-CMD [ "dist/bundle.js" ]
+CMD [ "dist/index.js" ]

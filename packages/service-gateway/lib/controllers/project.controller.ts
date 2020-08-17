@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import requester from './project.requester'
+import requester from '../requesters/project.requester'
 
 export class ProjectServiceController {
 	async getProjects(req: Request, res: Response) {

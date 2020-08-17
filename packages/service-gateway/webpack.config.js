@@ -3,7 +3,7 @@ const path = require('path')
 
 module.exports = configure({
 	output: {
-		filename: 'bundle.js',
+		filename: 'index.js',
 		path: path.join(__dirname, 'dist'),
 	},
 	entry: path.join(__dirname, 'lib', 'index.ts'),

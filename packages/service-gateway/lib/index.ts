@@ -10,10 +10,8 @@ import errorhandler from 'errorhandler'
 import signale from 'signale'
 import getport from 'get-port'
 
-import { sentry } from '@humantic/shared/lib/modules/sentry.module'
-
 // Project-wide Routers for other services
-import { ProjectServiceRouter } from '@humantic/project-service/lib/project.router'
+import { ProjectServiceRouter } from './routers/project.router'
 
 export class GatewayService {
 	public app: Application
@@ -39,7 +37,6 @@ export class GatewayService {
 	/** Global configuration of middlewares. */
 	private middleware() {
 		this.app.disable('x-powered-by')
-		this.app.use(sentry.Handlers.requestHandler())
 		this.app.use(express.json())
 		this.app.use(express.urlencoded({ extended: false }))
 		this.app.use(cors())
@@ -52,7 +49,6 @@ export class GatewayService {
 	}
 
 	private errorHandling() {
-		this.app.use(sentry.Handlers.errorHandler())
 		this.app.use(errorhandler())
 	}
 }
