@@ -2,13 +2,13 @@
 	"name": "@humantic/shared",
 	"version": "0.0.2-alpha.0",
 	"description": "Shared components which can be used over all available services.",
+	"private": false,
 	"main": "lib/index.ts",
 	"files": [
 		"lib"
 	],
 	"author": "Jakub Olan <jakub.jay.olan@gmail.com>",
 	"license": "MIT",
-	"private": true,
 	"dependencies": {
 		"@araclx/tsconfig": "^0.0.11",
 		"@sentry/node": "5.20.1",

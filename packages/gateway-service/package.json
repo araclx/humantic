@@ -4,6 +4,7 @@
 	"description": "An API Gateway for Cote.js-based microservices.",
 	"main": "index.js",
 	"license": "MIT",
+	"private": false,
 	"dependencies": {
 		"@araclx/tsconfig": "^0.0.11",
 		"@humantic/project-service": "^1.0.1-alpha.0",
