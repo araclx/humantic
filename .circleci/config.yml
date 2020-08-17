@@ -39,10 +39,10 @@ jobs:
       app-dir: ~/humantic
       pkg-manager: yarn
    # Tempomary solution to test application as build instead functionality since there is no code to test basically.
-   - run: lerna publish from-package -y
+   - run: yarn run lerna publish from-package -y
 
 workflows:
- build:
+ build_and_publish:
   jobs:
    - build
    - publish
