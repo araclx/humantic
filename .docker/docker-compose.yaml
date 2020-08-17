@@ -15,7 +15,7 @@ services:
  gateway:
   container_name: humantic-gateway
   build:
-   context: ../packages/gateway-service
+   context: ../packages/service-gateway
    dockerfile: .docker/Dockerfile
   image: humantic/gateway
   ports:
@@ -24,9 +24,9 @@ services:
  project-service:
   container_name: humantic-projects
   build:
-   context: ../packages/project-service
+   context: ../packages/service-project
    dockerfile: .docker/Dockerfile
-  image: humantic/project-service
+  image: humantic/service-project
 
  mongodb:
   container_name: humantic-mongodb

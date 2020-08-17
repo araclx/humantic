@@ -5,6 +5,9 @@
 	"main": "index.js",
 	"license": "MIT",
 	"private": false,
+	"scripts": {
+		"build": "webpack"
+	},
 	"dependencies": {
 		"@araclx/tsconfig": "^0.0.11",
 		"@humantic/project-service": "^1.0.2-alpha.0",
@@ -38,7 +41,7 @@
 		"@types/test-listen": "1.1.0",
 		"@types/webpack": "4.41.21",
 		"ava": "3.11.1",
-		"craftpack": "0.0.8",
+		"craftpack": "^0.0.8",
 		"got": "11.5.2",
 		"mongomem": "0.1.9",
 		"nodemon": "2.0.4",
@@ -46,6 +49,6 @@
 		"test-listen": "1.1.0",
 		"ts-node": "8.10.2",
 		"typescript": "3.9.7",
-		"webpack": "4.44.1"
+		"webpack": "^4.44.1"
 	}
 }

@@ -1,4 +1,4 @@
-# humantic/<serviceName>:latest
+# humantic/project:latest
 #
 # VERSION         0.0.1
 # VENDOR          Araclx Inc.
@@ -10,7 +10,7 @@ FROM node:alpine AS development
 LABEL com.araclx.vendor "Araclx Inc."
 LABEL com.araclx.maintainer "Jakub Olan <jakub.olan001@gmail.com>"
 LABEL com.araclx.product "Humantic"
-LABEL com.araclx.subsystem "API"
+LABEL com.araclx.subsystem "service-project"
 LABEL com.araclx.version "0.0.1"
 
 # Working Directory of container
@@ -35,7 +35,10 @@ COPY . .
 # Build files
 RUN yarn build
 
+# Use non-root user for process
+USER node
+
 # Application Entrypoint
 EXPOSE 3600/tcp
 ENTRYPOINT ["node"]
-CMD [ "dist/gateway.worker.js" ]
+CMD [ "dist/bundle.js" ]
