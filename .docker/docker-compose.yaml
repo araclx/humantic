@@ -6,7 +6,7 @@ services:
  ui:
   container_name: humantic-ui
   build:
-   context: ../packages/ui-service
+   context: ../packages/service-ui
    dockerfile: .docker/Dockerfile
   image: humanitc/ui
   ports:
