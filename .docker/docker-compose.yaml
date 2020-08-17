@@ -21,6 +21,15 @@ services:
   ports:
    - 3600:3600
 
+ monitor:
+  container_name: humantic-monitor
+  build:
+   context: ../packages/service-monitor
+   dockerfile: .docker/Dockerfile
+  image: humantic/monitor
+  ports:
+   - 5555:5555
+
  project-service:
   container_name: humantic-projects
   build:

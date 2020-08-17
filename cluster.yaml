@@ -5,3 +5,6 @@ apps:
  - script: ./packages/service-project/dist/index.js
    name: 'service-project'
    watch: true
+ - script: ./packages/service-monitor/dist/index.js
+   name: 'service-monitor'
+   watch: true

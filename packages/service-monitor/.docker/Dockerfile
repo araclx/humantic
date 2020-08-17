@@ -1,4 +1,4 @@
-# humantic/project:latest
+# humantic/gateway:latest
 #
 # VERSION         0.0.1
 # VENDOR          Araclx Inc.
@@ -10,14 +10,14 @@ FROM node:alpine AS development
 LABEL com.araclx.vendor "Araclx Inc."
 LABEL com.araclx.maintainer "Jakub Olan <jakub.olan001@gmail.com>"
 LABEL com.araclx.product "Humantic"
-LABEL com.araclx.subsystem "service-project"
+LABEL com.araclx.subsystem "api-gateway"
 LABEL com.araclx.version "0.0.1"
 
 # Working Directory of container
 WORKDIR /usr/src/humantic
 
 # Healthchecking to monitor application status
-HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD curl -v http://localhost:3600/ || exit 1
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD curl -v http://localhost:5555/ || exit 1
 
 # Container User with root permissions
 USER root
@@ -39,5 +39,6 @@ RUN yarn build
 USER node
 
 # Application Entrypoint
+EXPOSE 5555/tcp
 ENTRYPOINT ["node"]
 CMD [ "dist/index.js" ]

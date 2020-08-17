@@ -10,6 +10,7 @@
 	"scripts": {
 		"build": "lerna run build",
 		"build:watch": "lerna run build:watch --parallel --no-bail",
+		"prestart": "yarn build",
 		"start": "pm2 start cluster.yaml && yarn build:watch",
 		"postinstall": "lerna bootstrap --ignore-prepublish",
 		"test": "lerna run test"
