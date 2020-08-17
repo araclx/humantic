@@ -3,11 +3,11 @@
 Platform designed for developers to find a perfectly matched job with their profile backed by AI. Generally can be
 considered as a fair UpWork alternative.
 
-## Usage
+## Usage (Back-End Dev)
 
 ```bash
 docker-compose -f ".docker/docker-compose.local.yaml" up -d --build --remove-orphans
-yarn start:dev
+yarn start
 ```
 
 ## Contributing

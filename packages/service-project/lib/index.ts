@@ -1,14 +1,10 @@
-import cote from 'cote'
+import responder from './project.reponder'
+import mongo from './mongoose.module'
+import { getProjects } from './project.controller'
 
-const projectResponder = new cote.Responder({
-	name: 'project responder',
-	key: 'projects',
-})
+mongo()
 
-projectResponder.on('*', (req) => console.log(req))
-
-const sampleData = ['Hello']
-
-projectResponder.on('list', (req) => {
-	return Promise.resolve(sampleData)
+responder.on('list', async (request) => {
+	const data = await getProjects()
+	return data
 })

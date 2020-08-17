@@ -1,7 +1,7 @@
 import jwt from 'express-jwt'
 import jwksrsa from 'jwks-rsa'
 
-import { AUTH0_DOMAIN, AUTH0_AUDIENCE } from '../utils/env'
+import { AUTH0_DOMAIN, AUTH0_AUDIENCE } from '../../../service-project/utils/env'
 
 export const JWT = jwt({
 	secret: jwksrsa.expressJwtSecret({

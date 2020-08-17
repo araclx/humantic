@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import signale from 'signale'
 
-import { MONGODB_URI } from '../utils/env'
+import { MONGODB_URI } from './env.util'
 
 const connection = mongoose.connection
 
