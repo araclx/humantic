@@ -26,8 +26,23 @@ jobs:
       pkg-manager: yarn
    # Tempomary solution to test application as build instead functionality since there is no code to test basically.
    - run: yarn build
+ publish:
+  working_directory: ~/humantic
+  executor: node
+  steps:
+   - checkout
+   - node/install:
+      install-yarn: true
+      lts: true
+   - node/install-yarn
+   - node/install-packages:
+      app-dir: ~/humantic
+      pkg-manager: yarn
+   # Tempomary solution to test application as build instead functionality since there is no code to test basically.
+   - run: lerna publish from-package -y
 
 workflows:
  build:
   jobs:
    - build
+   - publish
