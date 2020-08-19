@@ -7,6 +7,11 @@ export async function getProjects() {
 }
 
 export async function getProject() {}
-export async function createProject() {}
+
+export async function createProject(request) {
+	const newProject = new Project(request.body)
+	return newProject
+}
+
 export async function deleteProject() {}
 export async function updateProject() {}

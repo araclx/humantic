@@ -1,10 +1,5 @@
 apps:
- - script: ./packages/service-gateway/dist/index.js
+ - script: ./packages/service-api/dist/index.js
    name: 'api-gateway'
-   watch: true
- - script: ./packages/service-project/dist/index.js
-   name: 'service-project'
-   watch: true
- - script: ./packages/service-monitor/dist/index.js
-   name: 'service-monitor'
+   instances: -1
    watch: true

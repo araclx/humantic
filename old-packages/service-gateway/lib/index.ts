@@ -13,6 +13,8 @@ import getport from 'get-port'
 // Project-wide Routers for other services
 import { ProjectServiceRouter } from './routers/project.router'
 
+import { APP_PORT } from './utils/env'
+
 export class GatewayService {
 	public app: Application
 
@@ -25,9 +27,8 @@ export class GatewayService {
 
 	/** Starts a worker function. */
 	public async worker(): Promise<void> {
-		const ENVPORT = 3600
 		const PORT = await getport({
-			port: ENVPORT,
+			port: APP_PORT,
 		})
 		this.app.listen(PORT, () => {
 			signale.success(`API Gateway started on http://localhost:${PORT}`)
@@ -44,6 +45,7 @@ export class GatewayService {
 		this.app.use(morgan('dev'))
 	}
 
+	// eslint-disable-next-line @typescript-eslint/member-ordering
 	public routing() {
 		this.app.use('/', new ProjectServiceRouter().router)
 	}
@@ -53,4 +55,5 @@ export class GatewayService {
 	}
 }
 
+// eslint-disable-next-line @typescript-eslint/no-floating-promises
 new GatewayService().worker()
