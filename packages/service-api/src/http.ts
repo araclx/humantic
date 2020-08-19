@@ -9,7 +9,9 @@ import { createConnection } from 'typeorm'
 import signale from 'signale'
 import getport from 'get-port'
 
-import { User } from './models/user.model'
+import { User, Project } from '@humantic/model'
+import { ProjectRouter } from '@humantic/router'
+
 import { HOST, PORT } from './utils/env'
 
 export class Server {
@@ -43,6 +45,7 @@ export class Server {
 	}
 
 	private routing() {
+		this.core.use('/projects', new ProjectRouter().router)
 		this.core.get('/', (request, response) => response.json('Hello World'))
 	}
 
@@ -59,7 +62,9 @@ export class Server {
 			password: 'root',
 			database: 'defaultdb',
 			synchronize: true,
-			entities: [User],
+			logging: false,
+			dropSchema: true,
+			entities: [User, Project],
 		})
 			.catch((error) => {
 				signale.error('Database connection is ducked \n', error)
