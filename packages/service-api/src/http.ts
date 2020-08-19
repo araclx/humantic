@@ -10,8 +10,11 @@ import signale from 'signale'
 import getport from 'get-port'
 
 import { User } from './models/user.model'
+import { HOST, PORT } from './utils/env'
+
 export class Server {
 	public core: express.Application
+
 	constructor() {
 		this.core = express()
 		this.middleware()
@@ -22,11 +25,11 @@ export class Server {
 	}
 
 	public async listen() {
-		const PORT = await getport({
-			port: 3600,
+		const appPORT = await getport({
+			port: PORT,
 		})
-		this.core.listen(PORT, () => {
-			signale.success(`API Gateway started on http://localhost:${PORT}`)
+		this.core.listen(appPORT, () => {
+			signale.success(`Humantic API started on http://${HOST}:${appPORT}`)
 		})
 	}
 
@@ -51,11 +54,18 @@ export class Server {
 		await createConnection({
 			type: 'cockroachdb',
 			host: 'localhost',
-			port: 2314,
+			port: 26257,
+			username: 'root',
+			password: 'root',
+			database: 'defaultdb',
+			synchronize: true,
 			entities: [User],
-			// [WIP] Configure database connection.
-		}).catch((error) => {
-			signale.error('Database connection is ducked \n', error)
 		})
+			.catch((error) => {
+				signale.error('Database connection is ducked \n', error)
+			})
+			.then(() => {
+				signale.success('Connected to db')
+			})
 	}
 }
