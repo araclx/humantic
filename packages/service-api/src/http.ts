@@ -1,18 +1,34 @@
+// eslint-disable-next-line import/no-unassigned-import
+import 'reflect-metadata'
 import express from 'express'
 import cors from 'cors'
 import compression from 'compression'
 import morgan from 'morgan'
 import errorhandler from 'errorhandler'
-import typeorm from 'typeorm'
+import { createConnection } from 'typeorm'
+import signale from 'signale'
+import getport from 'get-port'
 
-import { User } from '../models/user.model'
+import { User } from './models/user.model'
 export class Server {
 	public core: express.Application
 	constructor() {
 		this.core = express()
+		this.middleware()
+		this.routing()
+		this.errorHandling()
+		// eslint-disable-next-line @typescript-eslint/no-floating-promises
+		this.database()
 	}
 
-	public async listen() {}
+	public async listen() {
+		const PORT = await getport({
+			port: 3600,
+		})
+		this.core.listen(PORT, () => {
+			signale.success(`API Gateway started on http://localhost:${PORT}`)
+		})
+	}
 
 	private middleware() {
 		this.core.disable('x-powered-by')
@@ -32,12 +48,14 @@ export class Server {
 	}
 
 	private async database() {
-		await typeorm.createConnection({
+		await createConnection({
 			type: 'cockroachdb',
 			host: 'localhost',
 			port: 2314,
 			entities: [User],
 			// [WIP] Configure database connection.
+		}).catch((error) => {
+			signale.error('Database connection is ducked \n', error)
 		})
 	}
 }

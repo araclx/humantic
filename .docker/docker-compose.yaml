@@ -12,30 +12,14 @@ services:
   ports:
    - 80:80
 
- gateway:
-  container_name: humantic-gateway
+ api:
+  container_name: humantic-api
   build:
-   context: ../packages/service-gateway
+   context: ../packages/service-api
    dockerfile: .docker/Dockerfile
-  image: humantic/gateway
+  image: humantic/api
   ports:
    - 3600:3600
-
- monitor:
-  container_name: humantic-monitor
-  build:
-   context: ../packages/service-monitor
-   dockerfile: .docker/Dockerfile
-  image: humantic/monitor
-  ports:
-   - 5555:5555
-
- project-service:
-  container_name: humantic-projects
-  build:
-   context: ../packages/service-project
-   dockerfile: .docker/Dockerfile
-  image: humantic/service-project
 
  mongodb:
   container_name: humantic-mongodb
