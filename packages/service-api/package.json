@@ -7,7 +7,8 @@
 	"scripts": {
 		"prepublish": "ncc build src/index.ts",
 		"build": "ncc build src/index.ts",
-		"start": "ncc run src/index.ts",
+		"build:dev": "webpack",
+		"start": "yarn build:dev && node dist/index.js",
 		"dev": "nodemon"
 	},
 	"devDependencies": {
@@ -20,10 +21,12 @@
 		"@types/nodemon": "^1.19.0",
 		"@types/pg": "^7.14.4",
 		"@types/signale": "^1.4.1",
+		"craftpack": "^0.0.14",
 		"nodemon": "^2.0.4",
 		"ts-node": "^8.10.2",
 		"ts-node-dev": "^1.0.0-pre.58",
-		"typescript": "^3.9.7"
+		"typescript": "^3.9.7",
+		"webpack": "^4.44.1"
 	},
 	"dependencies": {
 		"@sentry/node": "^5.21.1",

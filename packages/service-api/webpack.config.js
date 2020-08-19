@@ -6,5 +6,5 @@ module.exports = configure({
 		filename: 'index.js',
 		path: path.join(__dirname, 'dist'),
 	},
-	entry: path.join(__dirname, 'lib', 'index.ts'),
+	entry: path.join(__dirname, 'src', 'index.ts'),
 })
