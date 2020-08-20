@@ -14,5 +14,13 @@ export class User {
 	lastName?: string
 
 	@Column()
-	something?: string
+	// Secnond file to be linked with JWT.
+	username?: string
+
+	@Column()
+	// Main field which will be used to link person from JWT.
+	email?: string
+
+	@Column()
+	title?: string
 }

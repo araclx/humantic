@@ -14,7 +14,8 @@ export class ProjectRouter {
 	}
 
 	public routes() {
-		this.router.get('/', this.controller.getProject)
-		this.router.post('/', this.controller.createProject)
+		this.router.get('/', this.controller.getAll)
+		this.router.get('/:id', this.controller.getSingle)
+		this.router.post('/', this.controller.createOne)
 	}
 }

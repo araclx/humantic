@@ -20,7 +20,7 @@ export class Project {
 
 	@Column()
 	// In future applicants should be relaced with application model, which will be created with applicant, since maybe somebody want to include something that isn't on profile etc.
-	applicants?: string[] // TODO: Should be connected to User model.
+	applicants?: string // TODO: Should be connected to User model.
 
 	@Column()
 	assignedTo?: string // TODO: Should be connected to User model.

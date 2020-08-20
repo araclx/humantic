@@ -1,4 +1,5 @@
+import { Technology } from './techtag.model'
 import { Project } from './project.model'
 import { User } from './user.model'
 
-export { Project, User }
+export { Project, User, Technology }

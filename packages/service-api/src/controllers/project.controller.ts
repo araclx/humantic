@@ -8,14 +8,31 @@ export class ProjectController {
 	 * @param request
 	 * @param response
 	 */
-	public async getProject(request: Request, response: Response) {
+	public async getAll(request: Request, response: Response) {
 		const projectRepository = getRepository(Project)
 		const projects = await projectRepository.find()
 		response.json({ data: projects }).status(200)
 	}
 
+	// TODO: GetProject Method which will search for project with specified ID.
+	// NOTE: Tested by hand, and it's working.
+	public async getSingle(request: Request, response: Response) {
+		const repository = getRepository(Project)
+
+		const project = await repository.findOne(request.params.id)
+
+		// Return project data if found, otherwise return 404 status as not-found handler.
+		if (project) {
+			response.json({ data: project }).status(200)
+		} else {
+			response.status(404).json({
+				error: 'Not Found',
+			})
+		}
+	}
+
 	/** Create a new project in database from request body. */
-	public async createProject(request: Request, response: Response) {
+	public async createOne(request: Request, response: Response) {
 		// TODO: This request should be associated with JWT and automatically add creator of project to actually logged user.
 		const projectRepository = getRepository(Project)
 		const newProject = projectRepository.create(request.body)
@@ -27,8 +44,6 @@ export class ProjectController {
 			response.json(error).status(503)
 		}
 	}
-
-	// TODO: GetProject Method which will search for project with specified ID.
 
 	// TODO: SearchProject Method that will search for project with specified parameters through Algoria.
 
