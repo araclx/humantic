@@ -1,5 +1,5 @@
-import { Request, Response } from 'controllers/controllers/express'
-import { getRepository } from 'controllers/controllers/typeorm'
+import { Request, Response } from 'express'
+import { getRepository } from 'typeorm'
 import { Project } from '../models'
 
 export class ProjectController {

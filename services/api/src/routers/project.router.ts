@@ -1,4 +1,4 @@
-import { Router } from 'routers/routers/express'
+import { Router } from 'express'
 import { ProjectController } from '@humantic/controller'
 
 export class ProjectRouter {

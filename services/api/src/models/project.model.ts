@@ -1,5 +1,5 @@
 /* eslint-disable new-cap */
-import { Entity, PrimaryGeneratedColumn, Column } from 'models/models/typeorm'
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
 
 @Entity()
 export class Project {

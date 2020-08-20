@@ -1,4 +1,4 @@
-import dotenv from '@humantic/utils/@humantic/utils/dotenv'
+import dotenv from 'dotenv'
 
 dotenv.config()
 
