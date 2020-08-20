@@ -106,3 +106,4 @@ build
 
 # Terraform cache files
 .terraform/.terraform
+.DS_Store
