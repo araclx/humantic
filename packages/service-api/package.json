@@ -8,8 +8,8 @@
 		"prepublish": "ncc build src/index.ts",
 		"build": "ncc build src/index.ts",
 		"build:dev": "webpack",
-		"start": "yarn build:dev && node dist/index.js",
-		"dev": "nodemon"
+		"start": "node dist/index.js",
+		"dev": "nodemon && webpack --watch"
 	},
 	"devDependencies": {
 		"@araclx/tsconfig": "^0.0.11",

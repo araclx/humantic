@@ -14,6 +14,14 @@ import { ProjectRouter } from '@humantic/router'
 
 import { HOST, PORT } from './utils/env'
 
+/**
+ * Main Server Class which introduces all of application middleware, routers, error handlers and workers. Suggested usage of new clas instance is bellow.
+ ```
+ import {Server} from "@humantic/api"
+ new Server().listen
+ ```
+ */
+
 export class Server {
 	public core: express.Application
 
@@ -26,15 +34,17 @@ export class Server {
 		this.database()
 	}
 
+	/** Method that starts Server class. */
 	public async listen() {
 		const appPORT = await getport({
 			port: PORT,
 		})
 		this.core.listen(appPORT, () => {
-			signale.success(`Humantic API started on http://${HOST}:${appPORT}`)
+			signale.success(`Humantic: Listening on http://${HOST}:${appPORT}`)
 		})
 	}
 
+	/** Configuration of middleware attached to Express Server. */
 	private middleware() {
 		this.core.disable('x-powered-by')
 		this.core.use(express.json())
@@ -44,15 +54,17 @@ export class Server {
 		this.core.use(morgan('dev'))
 	}
 
+	/** Private Method dedicated for configuring routing of application. */
 	private routing() {
 		this.core.use('/projects', new ProjectRouter().router)
-		this.core.get('/', (request, response) => response.json('Hello World'))
 	}
 
+	/** Error Handling Method, dedicated for services like Sentry. */
 	private errorHandling() {
 		this.core.use(errorhandler())
 	}
 
+	/** Database Connection with usage of TypeORM. */
 	private async database() {
 		await createConnection({
 			type: 'cockroachdb',
@@ -70,7 +82,7 @@ export class Server {
 				signale.error('Database connection is ducked \n', error)
 			})
 			.then(() => {
-				signale.success('Connected to db')
+				signale.success('HumanticDB: Connected to CockroachDB')
 			})
 	}
 }
