@@ -1,0 +1,4 @@
+const AUTH0_DOMAIN: string = process.env.REACT_APP_AUTH0_DOMAIN!
+const AUTH0_CLIENTID: string = process.env.REACT_APP_AUTH0_CLIENTID!
+
+export { AUTH0_DOMAIN, AUTH0_CLIENTID }

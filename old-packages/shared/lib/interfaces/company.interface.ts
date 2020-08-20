@@ -1,3 +1,0 @@
-interface ICompany {
-	name: string
-}
