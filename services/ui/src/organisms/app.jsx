@@ -1,7 +1,9 @@
+/* eslint-disable react/button-has-type */
+/* eslint-disable react/jsx-no-bind */
+
 import React from 'react'
-import './App.css'
 import { useAuth0 } from '@auth0/auth0-react'
-import { Navbar } from './molecules/Navbar'
+import { Navbar } from '../molecules/navbar'
 import { Text, Box, Avatar } from '@chakra-ui/core'
 
 const LoginButton = () => {
@@ -42,7 +44,7 @@ const Profile = () => {
 		)
 	}
 
-	return <h1>You're not logged.</h1>
+	return <h1>You&apos;re not logged.</h1>
 }
 
 const App = () => {
