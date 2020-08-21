@@ -1,16 +1,14 @@
 import React from 'react'
-import logo from './logo.svg'
 import './App.css'
 import { useAuth0 } from '@auth0/auth0-react'
 import { Navbar } from './molecules/Navbar'
-import { Heading, Text, Box, Avatar } from '@chakra-ui/core'
+import { Text, Box, Avatar } from '@chakra-ui/core'
 
 const LoginButton = () => {
 	const { loginWithRedirect } = useAuth0()
 	return (
 		<button
 			onClick={function () {
-				// eslint-ignore-next-line typescript-eslint/no-floating-promises
 				loginWithRedirect()
 			}}>
 			LogIn
@@ -37,7 +35,7 @@ const Profile = () => {
 		return (
 			<div>
 				<Box display='flex'>
-					<Avatar name={user.name} src={user.picture}></Avatar>
+					<Avatar name={user.name} src={user.picture} />
 					<Text marginLeft='10px'>{user.nickname}</Text>
 				</Box>
 			</div>
@@ -47,18 +45,18 @@ const Profile = () => {
 	return <h1>You're not logged.</h1>
 }
 
-function App() {
+const App = () => {
 	return (
-		<React.Fragment>
-			<Navbar></Navbar>
+		<>
+			<Navbar />
 			<Box marginLeft='100px'>
 				<Box display='flex' marginBottom='50px'>
-					<LoginButton></LoginButton>
-					<LogoutButton></LogoutButton>
+					<LoginButton />
+					<LogoutButton />
 				</Box>
-				<Profile></Profile>
+				<Profile />
 			</Box>
-		</React.Fragment>
+		</>
 	)
 }
 
