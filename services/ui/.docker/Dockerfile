@@ -40,7 +40,7 @@ CMD [ "build" ]
 FROM nginx AS deploy
 
 # Copy build files to nginx static files
-COPY --from=build /usr/src/humantic/build /usr/share/nginx/html
+COPY --from=build /usr/src/humantic/build/public /usr/share/nginx/html
 
 # Overwrite Nginx configuration with one contained in source code.
 COPY --from=build /usr/src/humantic/.docker/nginx.conf /etc/nginx/conf.d/default.conf
