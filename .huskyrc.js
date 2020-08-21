@@ -1,1 +1,1 @@
-// module.exports = require('@araclx/husky-config')
+module.exports = require('@araclx/husky-config')

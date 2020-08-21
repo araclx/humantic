@@ -1,4 +1,5 @@
 /* eslint-disable new-cap */
+/* eslint-disable no-warning-comments */
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
 
 @Entity()

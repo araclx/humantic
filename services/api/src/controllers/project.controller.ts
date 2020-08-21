@@ -1,3 +1,4 @@
+/* eslint-disable no-warning-comments */
 import { Request, Response } from 'express'
 import { getRepository } from 'typeorm'
 import { Project } from '../models'
