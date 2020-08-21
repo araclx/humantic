@@ -38,7 +38,7 @@ const Profile = () => {
 			<div>
 				<Box display='flex'>
 					<Avatar name={user.name} src={user.picture}></Avatar>
-					<Text marginLeft='10px'>{user.name}</Text>
+					<Text marginLeft='10px'>{user.nickname}</Text>
 				</Box>
 			</div>
 		)
