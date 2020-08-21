@@ -2,6 +2,8 @@ import React from 'react'
 import logo from './logo.svg'
 import './App.css'
 import { useAuth0 } from '@auth0/auth0-react'
+import { Navbar } from './molecules/Navbar'
+import { Heading, Text, Box, Avatar } from '@chakra-ui/core'
 
 const LoginButton = () => {
 	const { loginWithRedirect } = useAuth0()
@@ -34,32 +36,29 @@ const Profile = () => {
 	if (isAuthenticated) {
 		return (
 			<div>
-				<img src={user.picture} alt={user.name} />
-				<h2>{user.name}</h2>
-				<p>{user.email}</p>
+				<Box display='flex'>
+					<Avatar name={user.name} src={user.picture}></Avatar>
+					<Text marginLeft='10px'>{user.name}</Text>
+				</Box>
 			</div>
 		)
 	}
 
-	return <h1>Not logged in!</h1>
+	return <h1>You're not logged.</h1>
 }
 
 function App() {
 	return (
-		<div className='App'>
-			<header className='App-header'>
-				<img src={logo} className='App-logo' alt='logo' />
-				<p>
-					Edit <code>src/App.tsx</code> and save to reload.
-				</p>
+		<React.Fragment>
+			<Navbar></Navbar>
+			<Box marginLeft='100px'>
+				<Box display='flex' marginBottom='50px'>
+					<LoginButton></LoginButton>
+					<LogoutButton></LogoutButton>
+				</Box>
 				<Profile></Profile>
-				<LoginButton></LoginButton>
-				<LogoutButton></LogoutButton>
-				<a className='App-link' href='https://reactjs.org' target='_blank' rel='noopener noreferrer'>
-					Learn React
-				</a>
-			</header>
-		</div>
+			</Box>
+		</React.Fragment>
 	)
 }
 

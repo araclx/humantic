@@ -9,10 +9,12 @@
 		"build": "webpack",
 		"build:dev": "webpack --watch",
 		"start": "node dist/index.js",
+		"test:lint": "xo --fix --open",
 		"dev": "nodemon"
 	},
 	"devDependencies": {
 		"@araclx/tsconfig": "^0.0.11",
+		"@araclx/xo-config": "^0.0.2",
 		"@types/compression": "^1.7.0",
 		"@types/cors": "^2.8.7",
 		"@types/errorhandler": "^1.5.0",
@@ -26,7 +28,8 @@
 		"ts-node": "^8.10.2",
 		"ts-node-dev": "^1.0.0-pre.58",
 		"typescript": "^3.9.7",
-		"webpack": "^4.44.1"
+		"webpack": "^4.44.1",
+		"xo": "^0.33.0"
 	},
 	"dependencies": {
 		"@sentry/node": "^5.21.1",

@@ -13,6 +13,7 @@
 		"prestart": "yarn build",
 		"start": "pm2 start cluster.yaml && yarn build:watch",
 		"postinstall": "lerna bootstrap --ignore-prepublish",
+		"test:lint": "lerna run test:lint --stream",
 		"test": "lerna run test"
 	},
 	"devDependencies": {
@@ -24,7 +25,10 @@
 		"@types/prettier": "2.0.2",
 		"@types/semantic-release": "17.1.0",
 		"@types/xo": "0.28.0",
+		"eslint-config-xo-react": "^0.23.0",
 		"eslint-plugin-prettier": "3.1.4",
+		"eslint-plugin-react": "^7.20.6",
+		"eslint-plugin-react-hooks": "^4.1.0",
 		"husky": "4.2.5",
 		"lerna": "3.22.1",
 		"pm2": "^4.4.0",
