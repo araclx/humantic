@@ -12,6 +12,7 @@ import { ProjectRouter } from '@humantic/router'
 
 import { HOST, PORT, MONGODB_URI } from './utils/env'
 import { prepareAlgolia } from './utils/algoria'
+import { prepareMinio } from './utils/minio'
 
 /**
  * Main Server Class which introduces all of application middleware, routers, error handlers and workers. Suggested usage of new clas instance is bellow.
@@ -103,5 +104,6 @@ export class Server {
 			})
 
 		await prepareAlgolia()
+		prepareMinio()
 	}
 }

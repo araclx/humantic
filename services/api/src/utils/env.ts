@@ -15,3 +15,8 @@ export const ALGORIA_API = process.env.ALGORIA_API!
 
 // Database Configuration
 export const MONGODB_URI = process.env.MONGODB_URI! || 'mongodb://localhost'
+
+// Object Storage Configuration
+export const MINIO_HOST = process.env.MINIO_HOST! || 'localhost'
+export const MINIO_PUBLICKEY = process.env.MINIO_PUBLICKEY!
+export const MINIO_PRIVATEKEY = process.env.MINIO_PRIVATEKEY!

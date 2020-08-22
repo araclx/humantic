@@ -8,3 +8,12 @@ services:
     image: mongo
     ports:
       - 27017:27017
+  minio:
+    container_name: humantic-minio
+    command: server /data
+    image: minio/minio:edge
+    environment:
+      MINIO_ACCESS_KEY: AKIAIOSFODNN7EXAMPLE
+      MINIO_SECRET_KEY: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+    ports:
+      - 9000:9000

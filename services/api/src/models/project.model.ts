@@ -7,6 +7,7 @@ const projectSchema = new mongoose.Schema({
 	deadline: Date,
 	applicants: Array,
 	assignedTo: String,
+	attachments: Array,
 })
 
 export const Project = mongoose.model('Project', projectSchema)
