@@ -1,10 +1,8 @@
-import { Technology } from '../models/techtag.model'
 /* eslint-disable no-warning-comments */
 import { Request, Response } from 'express'
 import { getRepository } from 'typeorm'
 import { Project } from '../models'
 import { projectIndex } from '../utils/algoria'
-import signale from 'signale'
 
 export class ProjectController {
 	/**
@@ -64,7 +62,7 @@ export class ProjectController {
 	}
 
 	// TODO: SearchProject Method that will search for project with specified parameters through Algoria.
-	public async searchThrough(request: Request, response: Response) {}
+	// public async searchThrough(request: Request, response: Response) {}
 
 	// TODO: UpdateProject Method that will update specified project through providing ID of Project.
 

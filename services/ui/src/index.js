@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-/* eslint-disable unicorn/prefer-query-selector */
 
 import React from 'react'
 import { render } from 'react-dom'
@@ -25,7 +24,7 @@ class Index extends React.Component {
 	}
 }
 
-render(<Index />, document.getElementById('root'))
+render(<Index />, document.querySelector('#root'))
 
 if (module.hot) {
 	module.hot.accept()

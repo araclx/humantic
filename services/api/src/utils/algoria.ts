@@ -18,5 +18,5 @@ export async function prepareAlgolia() {
 	// NOTE: In case of development where our database constantly gets wiped there we can use an index.clearObjects(), to delate all objects contained in specified index.
 
 	// eslint-disable-next-line @typescript-eslint/no-floating-promises
-	// userIndex.clearObjects()
+	userIndex.clearObjects()
 }

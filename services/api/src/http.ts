@@ -9,7 +9,7 @@ import { createConnection } from 'typeorm'
 import signale from 'signale'
 import getport from 'get-port'
 
-import { User, Project, Technology } from '@humantic/model'
+import { User, Project } from '@humantic/model'
 import { ProjectRouter, TechnologyRouter } from '@humantic/router'
 
 import { HOST, PORT } from './utils/env'
@@ -68,6 +68,7 @@ export class Server {
 
 	/** Database Connection with usage of TypeORM. */
 	private async database() {
+		// eslint-disable-next-line no-warning-comments
 		// TODO(HUM-2): Migrate to Sequalize instead TypeORM because TypeORM STILL doesn't support CockroachDB...
 		await createConnection({
 			type: 'cockroachdb',
