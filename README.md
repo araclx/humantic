@@ -3,6 +3,11 @@
 Platform designed for developers to find a perfectly matched job with their profile backed by AI. Generally can be
 considered as a fair UpWork alternative.
 
+## Design of Platform
+
+UI of whole platform is under design process, and actual prototype is available at
+https://aralcx.invisionapp.com/console/share/5B1G4RAV8R
+
 ## Usage (Back-End Dev)
 
 ```bash
