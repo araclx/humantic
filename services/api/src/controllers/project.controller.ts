@@ -1,7 +1,10 @@
+import { Technology } from '../models/techtag.model'
 /* eslint-disable no-warning-comments */
 import { Request, Response } from 'express'
 import { getRepository } from 'typeorm'
 import { Project } from '../models'
+import { projectIndex } from '../utils/algoria'
+import signale from 'signale'
 
 export class ProjectController {
 	/**
@@ -20,6 +23,8 @@ export class ProjectController {
 	public async getSingle(request: Request, response: Response) {
 		const repository = getRepository(Project)
 
+		// TODO(HUM-1): Create an method which will automatically search description constained in request.body, with database request to Technologies entity.
+
 		const project = await repository.findOne(request.params.id)
 
 		// Return project data if found, otherwise return 404 status as not-found handler.
@@ -36,17 +41,30 @@ export class ProjectController {
 	public async createOne(request: Request, response: Response) {
 		// TODO: This request should be associated with JWT and automatically add creator of project to actually logged user.
 		const projectRepository = getRepository(Project)
+
 		const newProject = projectRepository.create(request.body)
-		// TODO: Add error-handling
+
 		try {
 			await projectRepository.save(newProject)
 			response.json({ data: newProject }).status(200)
 		} catch (error) {
-			response.json(error).status(503)
+			response.json({ err: error })
+		}
+
+		try {
+			await projectIndex.saveObject(newProject, {
+				autoGenerateObjectIDIfNotExist: true,
+			})
+		} catch (error) {
+			response.json({
+				message: 'Unable to create index for project.',
+				err: error,
+			})
 		}
 	}
 
 	// TODO: SearchProject Method that will search for project with specified parameters through Algoria.
+	public async searchThrough(request: Request, response: Response) {}
 
 	// TODO: UpdateProject Method that will update specified project through providing ID of Project.
 

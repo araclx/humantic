@@ -11,11 +11,14 @@ export class Technology {
 	name?: string
 
 	@Column()
+	aliases?: string[]
+
+	@Column()
 	slug?: string
 
 	@Column()
 	logo?: string
 
 	@Column()
-	description?: number
+	description?: string
 }

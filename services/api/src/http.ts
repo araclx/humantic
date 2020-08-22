@@ -9,10 +9,11 @@ import { createConnection } from 'typeorm'
 import signale from 'signale'
 import getport from 'get-port'
 
-import { User, Project } from '@humantic/model'
-import { ProjectRouter } from '@humantic/router'
+import { User, Project, Technology } from '@humantic/model'
+import { ProjectRouter, TechnologyRouter } from '@humantic/router'
 
 import { HOST, PORT } from './utils/env'
+import { prepareAlgolia } from './utils/algoria'
 
 /**
  * Main Server Class which introduces all of application middleware, routers, error handlers and workers. Suggested usage of new clas instance is bellow.
@@ -57,6 +58,7 @@ export class Server {
 	/** Private Method dedicated for configuring routing of application. */
 	private routing() {
 		this.core.use('/projects', new ProjectRouter().router)
+		this.core.use('/technologies', new TechnologyRouter().router)
 	}
 
 	/** Error Handling Method, dedicated for services like Sentry. */
@@ -66,6 +68,7 @@ export class Server {
 
 	/** Database Connection with usage of TypeORM. */
 	private async database() {
+		// TODO(HUM-2): Migrate to Sequalize instead TypeORM because TypeORM STILL doesn't support CockroachDB...
 		await createConnection({
 			type: 'cockroachdb',
 			host: 'localhost',
@@ -77,12 +80,10 @@ export class Server {
 			logging: false,
 			dropSchema: true,
 			entities: [User, Project],
+		}).catch((error) => {
+			signale.error('Database connection is ducked \n', error)
 		})
-			.catch((error) => {
-				signale.error('Database connection is ducked \n', error)
-			})
-			.then(() => {
-				signale.success('HumanticDB: Connected to CockroachDB')
-			})
+
+		await prepareAlgolia()
 	}
 }
