@@ -1,18 +1,15 @@
-// eslint-disable-next-line import/no-unassigned-import
-import 'reflect-metadata'
 import express from 'express'
 import cors from 'cors'
 import compression from 'compression'
 import morgan from 'morgan'
 import errorhandler from 'errorhandler'
-import { createConnection } from 'typeorm'
+import mongoose from 'mongoose'
 import signale from 'signale'
 import getport from 'get-port'
 
-import { User, Project } from '@humantic/model'
-import { ProjectRouter, TechnologyRouter } from '@humantic/router'
+import { ProjectRouter } from '@humantic/router'
 
-import { HOST, PORT } from './utils/env'
+import { HOST, PORT, MONGODB_URI } from './utils/env'
 import { prepareAlgolia } from './utils/algoria'
 
 /**
@@ -58,7 +55,6 @@ export class Server {
 	/** Private Method dedicated for configuring routing of application. */
 	private routing() {
 		this.core.use('/projects', new ProjectRouter().router)
-		this.core.use('/technologies', new TechnologyRouter().router)
 	}
 
 	/** Error Handling Method, dedicated for services like Sentry. */
@@ -68,22 +64,39 @@ export class Server {
 
 	/** Database Connection with usage of TypeORM. */
 	private async database() {
-		// eslint-disable-next-line no-warning-comments
-		// TODO(HUM-2): Migrate to Sequalize instead TypeORM because TypeORM STILL doesn't support CockroachDB...
-		await createConnection({
-			type: 'cockroachdb',
-			host: 'localhost',
-			port: 26257,
-			username: 'root',
-			password: 'root',
-			database: 'defaultdb',
-			synchronize: true,
-			logging: false,
-			dropSchema: true,
-			entities: [User, Project],
-		}).catch((error) => {
-			signale.error('Database connection is ducked \n', error)
+		mongoose.connection.on('connected', () => {
+			signale.success('HumanticDB: Connected to database.')
 		})
+		mongoose.connection.on('reconnected', () => {
+			signale.success('HumanticDB: Reconnected to database.')
+		})
+		mongoose.connection.on('disconected', () => {
+			signale.warn('HumanticDB: Disconected from database.')
+			signale.info('HumanticDB: Reconnecting to database...')
+			setTimeout(() => {
+				mongoose.connect(MONGODB_URI, {
+					autoReconnect: true,
+					keepAlive: true,
+					socketTimeoutMS: 3000,
+					connectTimeoutMS: 3000,
+				})
+			}, 3000)
+		})
+		mongoose.connection.on('close', () => {
+			signale.log('HumanticDB: Connection closed.')
+		})
+		mongoose.connection.on('error', (error) => {
+			signale.error('HumanticDB: Database error \n', error)
+		})
+
+		await mongoose
+			.connect(MONGODB_URI, {
+				autoReconnect: true,
+				keepAlive: true,
+			})
+			.catch((error) => {
+				signale.error('HumanticDB: Database error \n', error)
+			})
 
 		await prepareAlgolia()
 	}

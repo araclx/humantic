@@ -3,19 +3,8 @@
 version: '3.8'
 
 services:
-  # Database service for Microservices contained in packages folder.
   mongodb:
     container_name: humantic-mongodb
     image: mongo
     ports:
       - 27017:27017
-
-  # docker exec -it humantic-cockroach ./cockroach init --insecure
-  cockroach:
-    container_name: humantic-cockroach
-    hostname: cockroach
-    image: cockroachdb/cockroach
-    command: start --insecure --join=cockroach
-    ports:
-      - 26257:26257
-      - 8080:8080
