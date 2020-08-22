@@ -77,7 +77,6 @@ export class Server {
 			setTimeout(() => {
 				// eslint-disable-next-line @typescript-eslint/no-floating-promises
 				mongoose.connect(MONGODB_URI, {
-					autoReconnect: true,
 					keepAlive: true,
 					socketTimeoutMS: 3000,
 					connectTimeoutMS: 3000,
@@ -95,7 +94,6 @@ export class Server {
 
 		await mongoose
 			.connect(MONGODB_URI, {
-				autoReconnect: true,
 				keepAlive: true,
 				useUnifiedTopology: true,
 				useNewUrlParser: true,

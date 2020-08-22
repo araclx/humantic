@@ -1801,18 +1801,19 @@ cosmiconfig@^7.0.0:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
-craftpack@^0.0.14:
-  version "0.0.14"
-  resolved "https://registry.yarnpkg.com/craftpack/-/craftpack-0.0.14.tgz#cd4c8c95be481b1d2de990274e48b4673efc46fa"
-  integrity sha512-ckU9sn+NJHKqjWhgM+38F9kQ9o79OJIzu++kfxTBxclbZHzsMjuHSgWdPU4TiGnTsOxWEbGzUKVNZJNjkEP8Bg==
+craftpack@^0.0.16:
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/craftpack/-/craftpack-0.0.16.tgz#e85fe1fa6a0577b26fffdbff4fce8cfc1d83d34f"
+  integrity sha512-9GiDmU98Q9YCe7SFCjkJEDGqWzcGao12N11mO4gAN1RP69EsDAFWm349tL/05zqX0zFWP6/DWa/XFM2/ezxIkg==
   dependencies:
     friendly-errors-webpack-plugin "^1.7.0"
+    nodemon-webpack-plugin "^4.3.2"
     source-map "^0.7.3"
     ts-loader "^8.0.2"
     tsconfig-paths-webpack-plugin "^3.3.0"
     webpack "^4.44.1"
     webpack-cli "^3.3.12"
-    webpack-merge "^5.1.1"
+    webpack-merge "^5.1.2"
     webpack-node-externals "^2.5.1"
     webpackbar "^4.0.0"
 
@@ -4519,7 +4520,15 @@ nice-try@^1.0.4:
     util "^0.11.0"
     vm-browserify "^1.0.1"
 
-nodemon@^2.0.4:
+nodemon-webpack-plugin@^4.3.2:
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/nodemon-webpack-plugin/-/nodemon-webpack-plugin-4.3.2.tgz#bab5c592ca147857a9cc0cf10e7c8b6fe5a14cbb"
+  integrity sha512-/m/u85ZKOK3bzVTHkoXCFQyKNmdLWnX9OvHGMmh7WuRzG/YFSjbXDTNo+FAtEeiGvXWSIjQHDbTko2W81EeTUg==
+  dependencies:
+    nodemon "2.0.4"
+    ramda "0.27.0"
+
+nodemon@2.0.4, nodemon@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-2.0.4.tgz#55b09319eb488d6394aa9818148c0c2d1c04c416"
   integrity sha512-Ltced+hIfTmaS28Zjv1BM552oQ3dbwPqI4+zI0SLgq+wpJhSyqgYude/aZa/3i31VCQWMfXJVxvu86abcam3uQ==
@@ -5143,6 +5152,11 @@ quick-lru@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-4.0.1.tgz#5b8878f113a58217848c6482026c73e1ba57727f"
   integrity sha512-ARhCpm70fzdcvNQfPoy49IaanKkTlRWF2JMzqhcJbhSFRZv7nPTvZJdcY7301IPmvW+/p0RgIWnQDLJxifsQ7g==
+
+ramda@0.27.0:
+  version "0.27.0"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.27.0.tgz#915dc29865c0800bf3f69b8fd6c279898b59de43"
+  integrity sha512-pVzZdDpWwWqEVVLshWUHjNwuVP7SfcmPraYuqocJp1yo2U1R7P+5QAfDhdItkuoGqIBnBYrtPp7rEPqDn9HlZA==
 
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5, randombytes@^2.1.0:
   version "2.1.0"
@@ -6507,7 +6521,7 @@ webpack-cli@^3.3.12:
     v8-compile-cache "^2.1.1"
     yargs "^13.3.2"
 
-webpack-merge@^5.1.1:
+webpack-merge@^5.1.2:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/webpack-merge/-/webpack-merge-5.1.2.tgz#21dc1ed0e860c305cf5a07a48750f53a99750855"
   integrity sha512-/slG0Kh0OKTf0zxdFJlhQHzv8bU9gUYVK5DkBjB3i/yoc1Xx4ADG0KITGO5S/6cqn2Ug43+8VR6Sz8daA/c+5g==

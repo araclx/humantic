@@ -19,7 +19,9 @@ export class ProjectController {
 	public async getSingle(request: Request, response: Response) {
 		// TODO(HUM-1): Create an method which will automatically search description constained in request.body, with database request to Technologies entity.
 
-		const project = await Project.findOne(request.params.id)
+		const project = await Project.findOne({
+			_id: request.params.id,
+		})
 
 		if (project === null) {
 			response.status(404).json({
@@ -37,7 +39,7 @@ export class ProjectController {
 		const newProject = new Project(request.body)
 
 		try {
-			await newProject.save(newProject)
+			await newProject.save()
 			response.json({ data: newProject }).status(200)
 		} catch (error) {
 			response.json({ err: error })

@@ -5,12 +5,9 @@
 	"main": "dist/index.js",
 	"license": "MIT",
 	"scripts": {
-		"prepublish": "ncc build src/index.ts",
-		"build": "webpack",
-		"build:dev": "webpack --watch",
-		"start": "node dist/index.js",
-		"test:lint": "xo --fix --open",
-		"dev": "nodemon"
+		"build": "ncc build src/index.ts",
+		"start": "webpack --watch",
+		"test:lint": "xo --fix --open"
 	},
 	"devDependencies": {
 		"@araclx/tsconfig": "^0.0.11",
@@ -27,13 +24,14 @@
 		"@types/signale": "^1.4.1",
 		"@types/webpack": "^4.41.21",
 		"@types/xo": "^0.28.0",
-		"craftpack": "^0.0.14",
+		"@vercel/ncc": "^0.23.0",
+		"craftpack": "^0.0.16",
 		"nodemon": "^2.0.4",
+		"nodemon-webpack-plugin": "^4.3.2",
 		"ts-node": "^8.10.2",
 		"ts-node-dev": "^1.0.0-pre.58",
 		"typescript": "^3.9.7",
 		"webpack": "^4.44.1",
-		"@vercel/ncc": "^0.23.0",
 		"xo": "^0.33.0"
 	},
 	"dependencies": {
