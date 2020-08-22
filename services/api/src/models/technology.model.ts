@@ -10,4 +10,4 @@ const technologySchema = new mongoose.Schema({
 	description: String,
 })
 
-export const Technology = mongoose.model('Project', technologySchema)
+export const Technology = mongoose.model('Technology', technologySchema)

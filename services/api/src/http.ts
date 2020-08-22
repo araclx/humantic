@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import compression from 'compression'
 import morgan from 'morgan'
+// ? errorhandler package should be implemented only in development mode.
 import errorhandler from 'errorhandler'
 import mongoose from 'mongoose'
 import signale from 'signale'
@@ -74,11 +75,14 @@ export class Server {
 			signale.warn('HumanticDB: Disconected from database.')
 			signale.info('HumanticDB: Reconnecting to database...')
 			setTimeout(() => {
+				// eslint-disable-next-line @typescript-eslint/no-floating-promises
 				mongoose.connect(MONGODB_URI, {
 					autoReconnect: true,
 					keepAlive: true,
 					socketTimeoutMS: 3000,
 					connectTimeoutMS: 3000,
+					useUnifiedTopology: true,
+					useNewUrlParser: true,
 				})
 			}, 3000)
 		})
@@ -93,6 +97,8 @@ export class Server {
 			.connect(MONGODB_URI, {
 				autoReconnect: true,
 				keepAlive: true,
+				useUnifiedTopology: true,
+				useNewUrlParser: true,
 			})
 			.catch((error) => {
 				signale.error('HumanticDB: Database error \n', error)
