@@ -1,8 +1,9 @@
 /* eslint-disable no-undef */
 
-import App from './app'
 import React from 'react'
 import ReactDOM from 'react-dom'
+
+import App from './app'
 
 describe('<App />', () => {
 	test('renders without exploding', () => {

@@ -1,9 +1,9 @@
+import { Box } from '@chakra-ui/core'
 import React from 'react'
 
-import { Navbar } from '../molecules/navbar'
-import { Box } from '@chakra-ui/core'
 import { LoginButton } from '../molecules/login-button'
 import { LogoutButton } from '../molecules/logout-button'
+import { Navbar } from '../molecules/navbar'
 import { Profile } from '../molecules/profile'
 
 const App = () => {

@@ -1,12 +1,13 @@
 /* eslint-disable no-undef */
 
+import { Auth0Provider } from '@auth0/auth0-react'
+import { theme, ThemeProvider } from '@chakra-ui/core'
 import React from 'react'
 import { render } from 'react-dom'
-import App from './organisms/app'
-import { theme, ThemeProvider } from '@chakra-ui/core'
-import { AUTH0_CLIENTID, AUTH0_DOMAIN } from './env'
-import { Auth0Provider } from '@auth0/auth0-react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+
+import { AUTH0_CLIENTID, AUTH0_DOMAIN } from './env'
+import App from './organisms/app'
 
 class Index extends React.Component {
 	render() {

@@ -1,5 +1,5 @@
-import { Router } from 'express'
 import { ProjectController } from '@humantic/controller'
+import { Router } from 'express'
 
 export class ProjectRouter {
 	public router: Router

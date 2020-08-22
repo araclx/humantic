@@ -2,12 +2,29 @@
 	"name": "@humantic/api",
 	"version": "0.0.1",
 	"description": "Back-end build for Humantic platform in monolithic architecture.",
-	"main": "dist/index.js",
 	"license": "MIT",
+	"main": "dist/index.js",
 	"scripts": {
 		"build": "ncc build src/index.ts",
 		"start": "webpack --watch",
 		"test:lint": "xo --fix --open"
+	},
+	"dependencies": {
+		"@sentry/node": "^5.21.1",
+		"algoliasearch": "^4.4.0",
+		"compression": "^1.7.4",
+		"cors": "^2.8.5",
+		"dotenv": "^8.2.0",
+		"errorhandler": "^1.5.1",
+		"express": "^4.17.1",
+		"express-jwt": "^6.0.0",
+		"get-port": "^5.1.1",
+		"jwks-rsa": "^1.9.0",
+		"minio": "^7.0.16",
+		"mongoose": "^5.10.0",
+		"morgan": "^1.10.0",
+		"signale": "^1.4.0",
+		"winston": "^3.3.3"
 	},
 	"devDependencies": {
 		"@araclx/tsconfig": "^0.0.11",
@@ -33,22 +50,5 @@
 		"typescript": "^3.9.7",
 		"webpack": "^4.44.1",
 		"xo": "^0.33.0"
-	},
-	"dependencies": {
-		"@sentry/node": "^5.21.1",
-		"algoliasearch": "^4.4.0",
-		"compression": "^1.7.4",
-		"cors": "^2.8.5",
-		"dotenv": "^8.2.0",
-		"errorhandler": "^1.5.1",
-		"express": "^4.17.1",
-		"express-jwt": "^6.0.0",
-		"get-port": "^5.1.1",
-		"jwks-rsa": "^1.9.0",
-		"minio": "^7.0.16",
-		"mongoose": "^5.10.0",
-		"morgan": "^1.10.0",
-		"signale": "^1.4.0",
-		"winston": "^3.3.3"
 	}
 }

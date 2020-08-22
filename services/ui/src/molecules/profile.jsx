@@ -1,6 +1,6 @@
-import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
-import { Text, Box, Avatar } from '@chakra-ui/core'
+import { Avatar, Box, Text } from '@chakra-ui/core'
+import React from 'react'
 
 export const Profile = () => {
 	const { user, isAuthenticated } = useAuth0()

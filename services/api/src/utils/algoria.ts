@@ -1,5 +1,5 @@
-import algoliasearch from 'algoliasearch'
 import { Project, Technology } from '@humantic/model'
+import algoliasearch from 'algoliasearch'
 import { ALGORIA_API } from './env'
 
 const client = algoliasearch('6PQCRW9MWF', ALGORIA_API)

@@ -1,20 +1,20 @@
 {
 	"name": "@araclx/humantic",
 	"version": "1.0.0",
-	"description": "No-code repository considered as a bare template for TypeScript applications, which includes code-related things such as linters, documentation, and other shit that you setup in every new repository. ",
-	"main": "index.js",
-	"repository": "https://github.com/ARACLX/humantic.git",
-	"author": "Jakub Olan <jakub.olan001@gmail.com>",
-	"license": "MIT",
 	"private": true,
+	"description": "No-code repository considered as a bare template for TypeScript applications, which includes code-related things such as linters, documentation, and other shit that you setup in every new repository. ",
+	"repository": "https://github.com/ARACLX/humantic.git",
+	"license": "MIT",
+	"author": "Jakub Olan <jakub.olan001@gmail.com>",
+	"main": "index.js",
 	"scripts": {
 		"build": "lerna run build",
 		"build:watch": "lerna run build:watch --parallel --no-bail",
+		"postinstall": "lerna bootstrap --ignore-prepublish",
 		"prestart": "yarn build",
 		"start": "pm2 start cluster.yaml && yarn build:watch",
-		"postinstall": "lerna bootstrap --ignore-prepublish",
-		"test:lint": "lerna run test:lint --stream",
-		"test": "lerna run test"
+		"test": "lerna run test",
+		"test:lint": "lerna run test:lint --stream"
 	},
 	"devDependencies": {
 		"@araclx/husky-config": "0.0.13",
@@ -34,6 +34,8 @@
 		"lerna": "3.22.1",
 		"pm2": "^4.4.0",
 		"prettier": "2.0.5",
+		"prettier-plugin-organize-imports": "^1.1.1",
+		"prettier-plugin-packagejson": "^2.2.5",
 		"semantic-release": "17.1.1",
 		"xo": "0.33.0"
 	}
