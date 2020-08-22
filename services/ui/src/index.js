@@ -6,7 +6,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import { AUTH0_CLIENTID, AUTH0_DOMAIN } from './env'
+import { AUTH0_CLIENTID, AUTH0_DOMAIN } from './utils/env'
 import App from './organisms/app'
 
 class Index extends React.Component {

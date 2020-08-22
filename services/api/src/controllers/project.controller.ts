@@ -60,7 +60,24 @@ export class ProjectController {
 	// TODO: SearchProject Method that will search for project with specified parameters through Algoria.
 	// public async searchThrough(request: Request, response: Response) {}
 
-	// TODO: UpdateProject Method that will update specified project through providing ID of Project.
+	// TODO: UpdateProject Method that will update specified project through
+	// providing ID of Project.
+	public async updateOne(request: Request, response: Response) {
+		const project = await Project.findByIdAndUpdate(
+			{
+				_id: request.params.id,
+			},
+			request.body
+		)
+
+		if (project === null) response.sendStatus(404)
+
+		const updatedProject = { _id: request.params.id, ...request.body }
+		response.json({
+			status: response.status,
+			data: updatedProject,
+		})
+	}
 
 	// TODO: DeleteProject Method for owners/admins of project that will completly remove him from database, this method should be able to use only when project is younger than 2h.
 }
