@@ -7,7 +7,7 @@
 	"scripts": {
 		"build": "ncc build src/index.ts",
 		"start": "webpack --watch",
-		"test:cov": "nyc --reporter=json ava",
+		"test:cov": "nyc ava",
 		"test:lint": "xo --fix --open",
 		"test:unit": "ava"
 	},
@@ -23,6 +23,7 @@
 		"express": "^4.17.1",
 		"express-jwt": "^6.0.0",
 		"get-port": "^5.1.1",
+		"got": "^11.5.2",
 		"jwks-rsa": "^1.9.0",
 		"minio": "^7.0.16",
 		"mongoose": "^5.10.0",
@@ -33,6 +34,7 @@
 	"devDependencies": {
 		"@araclx/tsconfig": "^0.0.11",
 		"@araclx/xo-config": "^0.0.2",
+		"@istanbuljs/nyc-config-typescript": "^1.0.1",
 		"@types/compression": "^1.7.0",
 		"@types/cors": "^2.8.7",
 		"@types/errorhandler": "^1.5.0",
@@ -46,10 +48,12 @@
 		"@types/webpack": "^4.41.21",
 		"@types/xo": "^0.28.0",
 		"@vercel/ncc": "^0.23.0",
+		"codecov": "^3.7.2",
 		"craftpack": "^0.0.16",
 		"nodemon": "^2.0.4",
 		"nodemon-webpack-plugin": "^4.3.2",
 		"nyc": "^15.1.0",
+		"test-listen": "^1.1.0",
 		"ts-node": "^9.0.0",
 		"ts-node-dev": "^1.0.0-pre.58",
 		"tsconfig-paths": "^3.9.0",
