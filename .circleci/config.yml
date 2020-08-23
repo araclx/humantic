@@ -56,8 +56,7 @@ jobs:
       app-dir: ~/humantic
       pkg-manager: yarn
    - run: yarn test:cov
-   - codecov/upload:
-      file: ~/humantic/services/api/coverage/coverage-final.json
+   - codecov/upload
 
  #  docker_build:
  #   working_directory: ~/humantic
