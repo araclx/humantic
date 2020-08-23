@@ -1,6 +1,6 @@
 import { ProjectRouter } from '@humantic/router'
 import { prepareAlgolia } from '@humantic/utils/algoria'
-import { HOST, MONGODB_URI, PORT } from '@humantic/utils/env'
+import { HOST, MONGODB_URI, NODE_ENV, PORT } from '@humantic/utils/env'
 import { prepareMinio } from '@humantic/utils/minio'
 import compression from 'compression'
 import cors from 'cors'
@@ -25,8 +25,8 @@ export class Server {
 	constructor() {
 		this.core = express()
 		this.middleware()
-		this.routing()
 		this.errorHandling()
+		this.routing()
 		// eslint-disable-next-line @typescript-eslint/no-floating-promises
 		this.database()
 	}
@@ -58,7 +58,7 @@ export class Server {
 
 	/** Error Handling Method, dedicated for services like Sentry. */
 	private errorHandling() {
-		this.core.use(errorhandler())
+		if (NODE_ENV === 'development') this.core.use(errorhandler())
 	}
 
 	/** Database Connection with usage of TypeORM. */
