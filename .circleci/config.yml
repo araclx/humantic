@@ -52,9 +52,6 @@ jobs:
    - node/install:
       install-yarn: true
       lts: true
-   - node/install-yarn
-   - run: node --version
-   - run: yarn --version
    - node/install-packages:
       app-dir: ~/humantic
       pkg-manager: yarn
@@ -62,15 +59,15 @@ jobs:
    - codecov/upload:
       file: ~/humantic/services/api/coverage/coverage-final.json
 
- docker_build:
-  working_directory: ~/humantic
-  executor: docker/docker
-  steps:
-   - setup_remote_docker:
-      docker_layer_caching: false
-   - checkout
-   - docker/check
-   - docker/build
+ #  docker_build:
+ #   working_directory: ~/humantic
+ #   executor: docker/docker
+ #   steps:
+ #    - setup_remote_docker:
+ #       docker_layer_caching: false
+ #    - checkout
+ #    - docker/check
+ #    - docker/build
 
  # Publish packages contained in repository to NPM.
  # TODO: Packages should be stored on GitHub Packages instead NPM.
@@ -105,23 +102,11 @@ workflows:
    - coverage:
       requires:
        - build
-   - publish:
-      requires:
-       - test_unit
-       - coverage
- publish_packages:
-  triggers:
-   - schedule:
-      filters:
-       branches:
-        only:
-         - streamline/main
-  jobs:
    # TODO: There we should implement Orb in better way with whole
    # lifecycle testing and artifact sharing with builded .tar from image.
    # https://circleci.com/orbs/registry/orb/circleci/docker
-   - docker/publish:
-      image: humwrk/api
-      path: ~/humantic/services/api
-      dockerfile: .docker/Dockerfile
-      registry: docker.io
+   # - docker/publish:
+   #    image: humwrk/api
+   #    path: ~/humantic/services/api
+   #    dockerfile: .docker/Dockerfile
+   #    registry: docker.io
