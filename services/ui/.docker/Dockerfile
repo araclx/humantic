@@ -20,7 +20,7 @@ WORKDIR /usr/src/humantic
 USER root
 
 # Container DotENV Configuration
-ENV NODE_ENV 'development'
+ENV NODE_ENV 'production'
 ENV SKIP_PREFLIGHT_CHECK 'true'
 
 # Install Application Dependencies

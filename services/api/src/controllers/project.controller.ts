@@ -9,15 +9,17 @@ export class ProjectController {
 	 * @param request
 	 * @param response
 	 */
+
 	public async getAll(request: Request, response: Response) {
 		const projects = await Project.find()
 		response.json({ data: projects }).status(200)
 	}
 
 	// TODO: GetProject Method which will search for project with specified ID.
-	// NOTE: Tested by hand, and it's working.
 	public async getSingle(request: Request, response: Response) {
-		// TODO(HUM-1): Create an method which will automatically search description constained in request.body, with database request to Technologies entity.
+		// TODO(HUM-1): Create an method which will automatically search
+		// description constained in request.body, with database request to
+		// Technologies entity.
 
 		const project = await Project.findOne({
 			_id: request.params.id,
@@ -28,7 +30,11 @@ export class ProjectController {
 				error: 'Not Found',
 			})
 		} else {
-			response.json({ data: project }).status(200)
+			response
+				.json({
+					data: project,
+				})
+				.status(200)
 		}
 	}
 

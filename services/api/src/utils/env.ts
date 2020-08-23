@@ -1,4 +1,5 @@
 import dotenv from 'dotenv'
+import { isDevelopmentCheck } from './helpers'
 
 dotenv.config()
 
@@ -21,3 +22,6 @@ export const MONGODB_URI = process.env.MONGODB_URI! || 'mongodb://localhost'
 export const MINIO_HOST = process.env.MINIO_HOST! || 'localhost'
 export const MINIO_PUBLICKEY = process.env.MINIO_PUBLICKEY!
 export const MINIO_PRIVATEKEY = process.env.MINIO_PRIVATEKEY!
+
+// ENV-based Lifecycle Variables
+export const isDevelopment = isDevelopmentCheck()

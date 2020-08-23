@@ -1,7 +1,8 @@
 import { ProjectRouter } from '@humantic/router'
 import { prepareAlgolia } from '@humantic/utils/algoria'
-import { HOST, MONGODB_URI, NODE_ENV, PORT } from '@humantic/utils/env'
+import { HOST, isDevelopment, MONGODB_URI, NODE_ENV, PORT } from '@humantic/utils/env'
 import { prepareMinio } from '@humantic/utils/minio'
+import cfonts from 'cfonts'
 import compression from 'compression'
 import cors from 'cors'
 import errorhandler from 'errorhandler'
@@ -37,7 +38,11 @@ export class Server {
 			port: PORT,
 		})
 		this.core.listen(appPORT, () => {
-			signale.success(`Humantic: Listening on http://${HOST}:${appPORT}`)
+			cfonts.say('Humantic', {
+				font: 'block',
+				align: 'left',
+			})
+			signale.success(`Humantic(${NODE_ENV}) Listening on http://${HOST}:${appPORT}`)
 		})
 	}
 
@@ -48,7 +53,7 @@ export class Server {
 		this.core.use(express.urlencoded({ extended: false }))
 		this.core.use(cors())
 		this.core.use(compression())
-		this.core.use(morgan('dev'))
+		if (isDevelopment) this.core.use(morgan('dev'))
 	}
 
 	/** Private Method dedicated for configuring routing of application. */
@@ -58,20 +63,27 @@ export class Server {
 
 	/** Error Handling Method, dedicated for services like Sentry. */
 	private errorHandling() {
-		if (NODE_ENV === 'development') this.core.use(errorhandler())
+		if (isDevelopment)
+			this.core.use(
+				errorhandler({
+					log: true,
+				})
+			)
 	}
 
 	/** Database Connection with usage of TypeORM. */
 	private async database() {
+		const dblog = signale.scope('mongodb')
+
 		mongoose.connection.on('connected', () => {
-			signale.success('HumanticDB: Connected to database.')
+			dblog.success('HumanticDB: Connected to database.')
 		})
 		mongoose.connection.on('reconnected', () => {
-			signale.success('HumanticDB: Reconnected to database.')
+			dblog.success('HumanticDB: Reconnected to database.')
 		})
 		mongoose.connection.on('disconected', () => {
-			signale.warn('HumanticDB: Disconected from database.')
-			signale.info('HumanticDB: Reconnecting to database...')
+			dblog.warn('HumanticDB: Disconected from database.')
+			dblog.info('HumanticDB: Reconnecting to database...')
 			setTimeout(() => {
 				// eslint-disable-next-line @typescript-eslint/no-floating-promises
 				mongoose.connect(MONGODB_URI, {
@@ -84,10 +96,10 @@ export class Server {
 			}, 3000)
 		})
 		mongoose.connection.on('close', () => {
-			signale.log('HumanticDB: Connection closed.')
+			dblog.log('HumanticDB: Connection closed.')
 		})
 		mongoose.connection.on('error', (error) => {
-			signale.error('HumanticDB: Database error \n', error)
+			dblog.error('HumanticDB: Database error \n', error)
 		})
 
 		await mongoose

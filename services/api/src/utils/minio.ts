@@ -10,22 +10,27 @@ const minioClient = new Minio.Client({
 	secretKey: MINIO_PRIVATEKEY,
 })
 
+const logger = signale.scope('minio')
+
 export function prepareMinio() {
 	// Check actual instance of humantic-projects, and if there is no such bucket create a new one.
 	minioClient.bucketExists('humantic-projects', function (err, exist) {
-		if (err) {
+		if (err) logger.error(err)
+
+		if (exist) return logger.warn('bucket "humantic-projects" already exitsts.')
+
+		if (!exist) {
 			minioClient.makeBucket('humantic-projects', 'eu', function (err) {
-				if (err) return signale.error(err)
-				signale.success('HumanticStorage: Successfully created bucket "humantic-projects"')
+				if (err) return logger.error(err)
+				logger.success('successfully created bucket "humantic-projects"')
 			})
 		}
-
-		if (exist) return signale.info('HumanticStorage: bucker "humantic-projects" already exitsts.')
 	})
 
 	// List all available buckets.
 	minioClient.listBuckets(function (err, buckets) {
-		if (err) return signale.error(err)
-		signale.info('HumanticStorage: Available buckets... \n', buckets)
+		if (err) return logger.error(err)
+		logger.info('listing available buckets...')
+		logger.log(buckets)
 	})
 }
