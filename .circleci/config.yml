@@ -63,7 +63,8 @@ jobs:
       pkg-manager: yarn
    - run: yarn test:cov
    - codecov/upload
-   - run: bash <(curl -Ls https://coverage.codacy.com/get.sh)
+   - run:
+      bash <(curl -Ls https://coverage.codacy.com/get.sh) -l JavaScript -r ~/humantic/services/api/coverage/lcov.info
 
  #  docker_build:
  #   working_directory: ~/humantic
@@ -101,13 +102,14 @@ workflows:
    # TODO: We should think about optimalizing Node.js installation since
    # there is no sense for installing same Node.js version multiple times
    # to perform simple tasks.
-   - build
-   - test_unit:
-      requires:
-       - build
-   - coverage:
-      requires:
-       - build
+   # - build
+   # - test_unit:
+   #    requires:
+   #     - build
+   # - coverage:
+   #    requires:
+   #     - build
+   - coverage
    # TODO: There we should implement Orb in better way with whole
    # lifecycle testing and artifact sharing with builded .tar from image.
    # https://circleci.com/orbs/registry/orb/circleci/docker
