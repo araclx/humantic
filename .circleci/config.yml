@@ -55,7 +55,7 @@ jobs:
    - node/install-packages:
       app-dir: ~/humantic
       pkg-manager: yarn
-   - run: yarn test:coverage
+   - run: yarn test:cov
    - codecov/upload:
       file: ~/humantic/services/api/coverage/coverage-final.json
 

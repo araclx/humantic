@@ -14,6 +14,8 @@
 		"prestart": "yarn build",
 		"start": "pm2 start cluster.yaml && yarn build:watch",
 		"test": "lerna run test",
+		"test:unit": "lerna run test:unit",
+		"test:cov": "lerna run test:cov",
 		"test:lint": "lerna run test:lint --stream"
 	},
 	"devDependencies": {
