@@ -1,5 +1,7 @@
 # humantic
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ab01f318210c444daedb491e04bf39eb)](https://app.codacy.com/gh/araclx/humantic?utm_source=github.com&utm_medium=referral&utm_content=araclx/humantic&utm_campaign=Badge_Grade_Dashboard)
+
 Platform designed for developers to find a perfectly matched job with their profile backed by AI. Generally can be
 considered as a fair UpWork alternative.
 
