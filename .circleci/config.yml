@@ -1,5 +1,11 @@
 version: 2.1
 
+# Required Environment Variables that are used by configuration:
+# CODECOV_TOKEN (Project-based)
+# CODACY_PROJECT_TOKEN (Project-based)
+# NPM_TOKEN (Project-based, can be global)
+# SKIP_PREFLIGHT_CHECK (true)... Damn CRA :/
+
 orbs:
  node: circleci/node@4.0.0
  docker: circleci/docker@1.4.0
@@ -57,6 +63,7 @@ jobs:
       pkg-manager: yarn
    - run: yarn test:cov
    - codecov/upload
+   - run: bash <(curl -Ls https://coverage.codacy.com/get.sh)
 
  #  docker_build:
  #   working_directory: ~/humantic
