@@ -66,15 +66,15 @@ jobs:
    - codecov/upload
    - codacy/send_report
 
-  docker_build:
-   working_directory: ~/humantic
-   executor: docker/docker
-   steps:
-    - setup_remote_docker:
-       docker_layer_caching: false
-    - checkout
-    - docker/check
-    - docker/build
+ docker_build:
+  working_directory: ~/humantic
+  executor: docker/docker
+  steps:
+   - setup_remote_docker:
+      docker_layer_caching: false
+   - checkout
+   - docker/check
+   - docker/build
 
  # Publish packages contained in repository to NPM.
  # TODO: Packages should be stored on GitHub Packages instead NPM.
