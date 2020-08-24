@@ -53,6 +53,7 @@
 		"nodemon": "^2.0.4",
 		"nodemon-webpack-plugin": "^4.3.2",
 		"nyc": "^15.1.0",
+		"tap-nyan": "^1.1.0",
 		"test-listen": "^1.1.0",
 		"ts-node": "^9.0.0",
 		"ts-node-dev": "^1.0.0-pre.58",

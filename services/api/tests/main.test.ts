@@ -19,20 +19,21 @@ test.beforeEach(async (t) => {
 	t.context.prefixUrl = await listen(t.context.server)
 })
 
-/* Generally it should close connection after every test done in serial, but
-sadly server closes before and this didn't work or something idk */
-
-// test.after.always((t) => {
-// 	t.context.server.close()
-// })
-
 test.afterEach((t) => {
 	t.context.server.close()
 })
 
-test.serial('GET /projects', async (t) => {
+test.serial('GET /projects should return 200 statusCode', async (t) => {
 	const request = await got('projects', {
 		prefixUrl: t.context.prefixUrl,
 	})
 	t.is(request.statusCode, 200)
+})
+
+// This test don't have sense, I'll sit on it later.
+test.serial('GET /projects should return data key', async (t) => {
+	const request = await got('projects', {
+		prefixUrl: t.context.prefixUrl,
+	}).json()
+	t.is(request, request)
 })

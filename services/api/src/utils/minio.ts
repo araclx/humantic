@@ -1,6 +1,6 @@
 import * as Minio from 'minio'
 import signale from 'signale'
-import { MINIO_HOST, MINIO_PRIVATEKEY, MINIO_PUBLICKEY } from './env'
+import { MINIO_HOST, MINIO_PRIVATEKEY, MINIO_PUBLICKEY, NODE_ENV } from './env'
 
 const minioClient = new Minio.Client({
 	endPoint: MINIO_HOST,
@@ -11,6 +11,8 @@ const minioClient = new Minio.Client({
 })
 
 const logger = signale.scope('minio')
+
+if (NODE_ENV === 'CI') logger.disable()
 
 export function prepareMinio() {
 	// Check actual instance of humantic-projects, and if there is no such bucket create a new one.

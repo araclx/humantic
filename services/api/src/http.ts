@@ -18,7 +18,7 @@ import signale from 'signale'
  import {Server} from "@humantic/api"
  new Server().listen
  ```
- */
+*/
 
 export class Server {
 	public core: express.Application
@@ -74,6 +74,8 @@ export class Server {
 	/** Database Connection with usage of TypeORM. */
 	private async database() {
 		const dblog = signale.scope('mongodb')
+
+		if (NODE_ENV === 'CI') dblog.disable()
 
 		mongoose.connection.on('connected', () => {
 			dblog.success('HumanticDB: Connected to database.')
