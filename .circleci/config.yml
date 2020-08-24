@@ -105,28 +105,29 @@ workflows:
    # TODO: (HUM-4) While we'll finalize this task, this step should be exectuted
    # only after passed build and tests because this will be deployed on staging
    # and then when on a specific branch deployed to production.
-   - docker/publish:
-      requires:
-       - build
-       - test_unit
-       - coverage
-      image: humwrk/api
-      docker-context: ~/project/services/api
-      path: ~/project/services/api
-      readme: README.md
-      tag: dev
-      dockerfile: .docker/Dockerfile
-      update-description: true
-      registry: docker.io
+   # NOTE: @ZiQiLN have created Docker-based pipelane on Docker website.
+   # - docker/publish:
+   #    requires:
+   #     - build
+   #     - test_unit
+   #     - coverage
+   #    image: humwrk/api
+   #    docker-context: ~/project/services/api
+   #    path: ~/project/services/api
+   #    readme: README.md
+   #    tag: dev
+   #    dockerfile: .docker/Dockerfile
+   #    update-description: true
+   #    registry: docker.io
 
-   - docker/publish:
-      requires:
-       - build
-      image: humwrk/ui
-      docker-context: ~/project/services/ui
-      path: ~/project/services/ui
-      readme: README.md
-      tag: dev
-      dockerfile: .docker/Dockerfile
-      update-description: true
-      registry: docker.io
+   # - docker/publish:
+   #    requires:
+   #     - build
+   #    image: humwrk/ui
+   #    docker-context: ~/project/services/ui
+   #    path: ~/project/services/ui
+   #    readme: README.md
+   #    tag: dev
+   #    dockerfile: .docker/Dockerfile
+   #    update-description: true
+   #    registry: docker.io
