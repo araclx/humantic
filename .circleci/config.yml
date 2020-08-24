@@ -5,6 +5,9 @@ version: 2.1
 # CODACY_PROJECT_TOKEN (Project-based)
 # NPM_TOKEN (Project-based, can be global)
 # SKIP_PREFLIGHT_CHECK (true)... Damn CRA :/
+#
+# DOCKER_LOGIN
+# DOCKER_PASSWORD
 
 orbs:
  node: circleci/node@4.0.0
@@ -66,16 +69,6 @@ jobs:
    - codecov/upload
    - codacy/send_report
 
- docker_build:
-  working_directory: ~/humantic
-  executor: docker/docker
-  steps:
-   - setup_remote_docker:
-      docker_layer_caching: false
-   - checkout
-   - docker/check
-   - docker/build
-
  # Publish packages contained in repository to NPM.
  # TODO: Packages should be stored on GitHub Packages instead NPM.
  publish:
@@ -97,12 +90,11 @@ jobs:
    - run: yarn run lerna publish from-package -y
 
 workflows:
- general:
+ devlane:
   jobs:
    # TODO: We should think about optimalizing Node.js installation since
    # there is no sense for installing same Node.js version multiple times
    # to perform simple tasks.
-
    - build
    - test_unit:
       requires:
@@ -110,6 +102,15 @@ workflows:
    - coverage:
       requires:
        - build
+       - test_unit
+   - docker/publish:
+      image: humwrk/api
+      docker-context: ~/humantic/services/api
+      path: ~/humantic/services/api
+      readme: ~/humantic/services/api/README.md
+      dockerfile: .docker/Dockerfile
+      update-description: true
+      registry: docker.io
    # TODO: There we should implement Orb in better way with whole
    # lifecycle testing and artifact sharing with builded .tar from image.
    # https://circleci.com/orbs/registry/orb/circleci/docker
