@@ -109,6 +109,7 @@ workflows:
       requires:
        - build
        - test_unit
+       - coverage
       image: humwrk/api
       docker-context: ~/project/services/api
       path: ~/project/services/api
