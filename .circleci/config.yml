@@ -95,19 +95,22 @@ workflows:
    # TODO: We should think about optimalizing Node.js installation since
    # there is no sense for installing same Node.js version multiple times
    # to perform simple tasks.
-   - build
-   - test_unit:
-      requires:
-       - build
-   - coverage:
-      requires:
-       - build
-       - test_unit
+   # - build
+   # - test_unit:
+   #    requires:
+   #     - build
+   # - coverage:
+   #    requires:
+   #     - build
+   #     - test_unit
+   # TODO(HUM-4): While we'll finalize this task, this step should be exectuted
+   # only after passed build and tests because this will be deployed on staging
+   # and then when on a specific branch deployed to production.
    - docker/publish:
       image: humwrk/api
-      docker-context: ~/humantic/services/api
-      path: ~/humantic/services/api
-      readme: ~/humantic/services/api/README.md
+      # docker-context: ~/project/services/api
+      path: ~/project/services/api
+      readme: ~/project/services/api/README.md
       dockerfile: .docker/Dockerfile
       update-description: true
       registry: docker.io
