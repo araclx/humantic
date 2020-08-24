@@ -4,7 +4,7 @@
 # VENDOR          Araclx Inc.
 # MAINTAINER      Jakub Olan <jakub.olan001@gmail.com>
 
-FROM node:alpine AS build
+FROM node:lts AS build
 
 # Container Metadata
 LABEL com.araclx.vendor "Araclx Inc."
@@ -33,9 +33,7 @@ COPY . .
 # Build files
 RUN yarn build
 
-# Application Entrypoint
-ENTRYPOINT ["yarn"]
-CMD [ "build" ]
+# FIXME: Dockerfile cannot find "react-scripts" and build command.
 
 # Second stage as a deployment
 FROM nginx AS deploy
