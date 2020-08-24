@@ -10,6 +10,7 @@ orbs:
  node: circleci/node@4.0.0
  docker: circleci/docker@1.4.0
  codecov: codecov/codecov@1.1.1
+ codacy: codacy/coverage-reporter@11.2.1
 
 executors:
  node:
@@ -63,9 +64,7 @@ jobs:
       pkg-manager: yarn
    - run: yarn test:cov
    - codecov/upload
-   - run:
-      bash <(curl -Ls https://coverage.codacy.com/get.sh) -l JavaScript -r ~/humantic/services/api/coverage/lcov.info
-
+   - codacy/send_report # Testing Orb
  #  docker_build:
  #   working_directory: ~/humantic
  #   executor: docker/docker
