@@ -97,7 +97,7 @@ workflows:
    # TODO: We should think about optimalizing Node.js installation since
    # there is no sense for installing same Node.js version multiple times
    # to perform simple tasks.
-   # - build
+   - build
    # - test_unit:
    #    requires:
    #     - build
@@ -109,10 +109,12 @@ workflows:
    # only after passed build and tests because this will be deployed on staging
    # and then when on a specific branch deployed to production.
    - docker/publish:
+      requires:
+       - build
       image: humwrk/api
       docker-context: ~/project/services/api
       path: ~/project/services/api
-      readme: ~/project/services/api/README.md
+      readme: README.md
       dockerfile: .docker/Dockerfile
       update-description: true
       registry: docker.io
