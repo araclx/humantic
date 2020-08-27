@@ -1,38 +1,38 @@
 {
-  "name": "@humantic/ui",
-  "version": "1.0.0",
-  "license": "MIT",
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "start:prod": "serve -s build"
-  },
-  "dependencies": {
-    "@auth0/auth0-react": "^1.0.0",
-    "@chakra-ui/core": "^0.8.0",
-    "@emotion/core": "^10.0.35",
-    "@emotion/styled": "^10.0.27",
-    "emotion-theming": "^10.0.27",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0",
-    "styled-components": "^5.1.1"
-  },
-  "devDependencies": {
-    "serve": "^11.3.0",
-    "typescript": "^4.0.2",
-    "react-scripts": "^3.4.3"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+	"name": "@humantic/ui",
+	"version": "0.1.0",
+	"license": "MIT",
+	"scripts": {
+		"build": "react-scripts build",
+		"start": "react-scripts start",
+		"start:prod": "serve -s build"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"dependencies": {
+		"@auth0/auth0-react": "^1.0.0",
+		"@chakra-ui/core": "^0.8.0",
+		"@emotion/core": "^10.0.35",
+		"@emotion/styled": "^10.0.27",
+		"emotion-theming": "^10.0.27",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+		"react-router-dom": "^5.2.0",
+		"styled-components": "^5.1.1"
+	},
+	"devDependencies": {
+		"react-scripts": "^3.4.3",
+		"serve": "^11.3.0",
+		"typescript": "^4.0.2"
+	}
 }

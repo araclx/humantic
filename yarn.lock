@@ -15,10 +15,10 @@
     precise-commits "^1.0.2"
     xo "^0.32.1"
 
-"@araclx/prettier-config@0.0.11":
-  version "0.0.11"
-  resolved "https://registry.yarnpkg.com/@araclx/prettier-config/-/prettier-config-0.0.11.tgz#610d62444ac8c540a35bc3cec013fdf9b3f4fdc8"
-  integrity sha512-SF+tl1FmuXqBFnjdhxwA3YjhZT8Jj5FOgf1Wrr35PXoI4NpklAA3SJHQl/xIenOeekyXNvEMmywrd4u7NjuiZw==
+"@araclx/prettier-config@^0.0.12":
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/@araclx/prettier-config/-/prettier-config-0.0.12.tgz#34a4f4570409a750c1651f82885ebd1bbfa536c7"
+  integrity sha512-fN7JPZwtHMZlvJcX+cyLc1yZCmNjjLq8Hu79DfZLAHFQ2iDsdrHvIOANv1BaNRxG8QLjL33VE6UxxLYZd8d34A==
   dependencies:
     prettier "^2.0.5"
 
