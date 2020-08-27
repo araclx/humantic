@@ -4,7 +4,7 @@
 # VENDOR          Araclx Inc.
 # MAINTAINER      Jakub Olan <jakub.olan001@gmail.com>
 
-FROM node:lts AS build
+FROM node:alpine AS build
 
 # Container Metadata
 LABEL com.araclx.vendor "Araclx Inc."
@@ -25,15 +25,16 @@ ENV SKIP_PREFLIGHT_CHECK 'true'
 
 # Install Application Dependencies
 COPY package.json .
-RUN yarn install
+RUN yarn
+
+# Add react-scripts globally since this thing is fucked up.
+RUN yarn global add react-scripts
 
 # Copy source of application
 COPY . .
 
 # Build files
 RUN yarn build
-
-# FIXME: Dockerfile cannot find "react-scripts" and build command.
 
 # Second stage as a deployment
 FROM nginx AS deploy
