@@ -111,10 +111,10 @@
   resolved "https://registry.yarnpkg.com/@araclx/tsconfig/-/tsconfig-0.0.11.tgz#b7dde8c7fddcd3a930faa769246cf741c9255f44"
   integrity sha512-NHSgfgThVxN7hFDS/pljirqvmmjdiCPSGBy1udKDIHq9d9YCSXctfQVIBEab1hDjrY7/FloOz9eEoHi/fQa89w==
 
-"@araclx/xo-config@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@araclx/xo-config/-/xo-config-0.0.2.tgz#9ddd5941b77b30b3a5c766fe223c1228989683d6"
-  integrity sha512-nruXw6HQEL00Dv7IXJXSxFbUvj1lGYEE07lcSvIxwahxOByPTZbkbIr7q5LIq0InBkr95IS3bWZxacc+rS2qrA==
+"@araclx/xo-config@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@araclx/xo-config/-/xo-config-0.0.3.tgz#5f04aee9275d235d2589c8edd2c5c246e48dfb6c"
+  integrity sha512-3RJDnP2RBnK5eHayQ90/shEeK9HHyEiS+T3SkcC0QabjrkMkrpjoWlj7Z6Ba6zD6Bz8b2es0fP2GOLamPnSfew==
   dependencies:
     eslint-plugin-prettier "^3.1.4"
 
