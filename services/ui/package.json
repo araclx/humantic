@@ -24,10 +24,13 @@
 		"@chakra-ui/core": "^0.8.0",
 		"@emotion/core": "^10.0.35",
 		"@emotion/styled": "^10.0.27",
+		"@rebass/preset": "^4.0.5",
 		"emotion-theming": "^10.0.27",
+		"ky": "^0.23.0",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
 		"react-router-dom": "^5.2.0",
+		"rebass": "^4.0.7",
 		"styled-components": "^5.1.1"
 	},
 	"devDependencies": {

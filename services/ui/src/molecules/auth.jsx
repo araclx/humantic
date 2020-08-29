@@ -1,17 +1,29 @@
-/* eslint-disable react/button-has-type */
 /* eslint-disable react/jsx-no-bind */
 
 import { useAuth0 } from '@auth0/auth0-react'
 import React from 'react'
+import { Button } from 'rebass'
 
 export const LoginButton = () => {
 	const { loginWithRedirect } = useAuth0()
 	return (
-		<button
+		<Button
 			onClick={function () {
 				loginWithRedirect()
 			}}>
 			LogIn
-		</button>
+		</Button>
+	)
+}
+
+export const LogoutButton = () => {
+	const { logout } = useAuth0()
+	return (
+		<Button
+			onClick={function () {
+				logout()
+			}}>
+			LogOut
+		</Button>
 	)
 }

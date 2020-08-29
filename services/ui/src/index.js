@@ -1,11 +1,11 @@
 /* eslint-disable no-undef */
 
 import { Auth0Provider } from '@auth0/auth0-react'
-import { theme, ThemeProvider } from '@chakra-ui/core'
 import React from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-
+import { ThemeProvider } from 'emotion-theming'
+import theme from '@rebass/preset'
 import { AUTH0_CLIENTID, AUTH0_DOMAIN } from './utils/env'
 import App from './organisms/app'
 
@@ -26,7 +26,3 @@ class Index extends React.Component {
 }
 
 render(<Index />, document.querySelector('#root'))
-
-if (module.hot) {
-	module.hot.accept()
-}

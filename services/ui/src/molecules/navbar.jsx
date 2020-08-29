@@ -1,27 +1,33 @@
 import React from 'react'
-import styled from 'styled-components'
+import { Flex, Text, Box } from 'rebass'
+import { LoginButton, LogoutButton } from './auth'
+import { useAuth0 } from '@auth0/auth0-react'
 
-const NavbarBackground = styled.div({
-	width: '100%',
-	marginBottom: '100px',
-	padding: '20px 48px 20px 40px',
-	display: 'flex',
-	alignItems: 'center',
-	justifyContent: 'space-between',
-	boxShadow: '1px 2px 10px 0px rgba(211, 207, 207, 0.25)',
-})
+const NavbarUser = () => {
+	const { user, isAuthenticated } = useAuth0()
 
-const NavbarLeftside = styled.div({
-	display: 'flex',
-	alignItems: 'center',
-})
+	if (isAuthenticated) {
+		return (
+			<div>
+				<Box display='flex'>
+					<Text marginLeft='10px'>{user.nickname}</Text>
+				</Box>
+				<LogoutButton />
+			</div>
+		)
+	}
+
+	return <LoginButton />
+}
 
 export const Navbar = () => {
 	return (
-		<NavbarBackground>
-			<NavbarLeftside>
-				<h4>Humantic Platform</h4>
-			</NavbarLeftside>
-		</NavbarBackground>
+		<Flex px={2} color='white' bg='black' height='70px' alignItems='center'>
+			<Text p={2} fontWeight='bold'>
+				Humwrk
+			</Text>
+			<Box mx='auto' />
+			<NavbarUser />
+		</Flex>
 	)
 }

@@ -16,5 +16,5 @@ export const Profile = () => {
 		)
 	}
 
-	return <h1>You&apos;re not logged.</h1>
+	return <h4>You&apos;re not logged.</h4>
 }
