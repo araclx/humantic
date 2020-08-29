@@ -1,4 +1,4 @@
-import { Server } from './http'
+import { Server } from './interfaces/http'
 
 const app = new Server()
 

@@ -5,13 +5,6 @@
 		"emitDecoratorMetadata": true,
 		"target": "ES2018",
 		"lib": ["ES2018"],
-		"baseUrl": "./src",
-		"paths": {
-			"@humantic/controller": ["controllers/index.ts"],
-			"@humantic/router": ["routers/index.ts"],
-			"@humantic/model": ["models/index.ts"],
-			"@humantic/middleware": ["middleware/index.ts"],
-			"@humantic/utils/*": ["utils/*"]
-		}
+		"baseUrl": "./src"
 	}
 }

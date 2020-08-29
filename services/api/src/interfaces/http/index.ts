@@ -1,16 +1,16 @@
-import { ProjectRouter } from '@humantic/router'
-import { prepareAlgolia } from '@humantic/utils/algoria'
-import { HOST, isDevelopment, MONGODB_URI, NODE_ENV, PORT } from '@humantic/utils/env'
-import { prepareMinio } from '@humantic/utils/minio'
 import cfonts from 'cfonts'
 import compression from 'compression'
 import cors from 'cors'
 import errorhandler from 'errorhandler'
 import express from 'express'
 import getport from 'get-port'
+import { prepareAlgolia } from 'interfaces/http/services/algoria'
+import { prepareMinio } from 'interfaces/http/services/minio'
 import mongoose from 'mongoose'
 import morgan from 'morgan'
+import { ProjectService } from 'projects/service'
 import signale from 'signale'
+import { HOST, isDevelopment, MONGODB_URI, NODE_ENV, PORT } from 'utils/env'
 
 /**
  * Main Server Class which introduces all of application middleware, routers, error handlers and workers. Suggested usage of new clas instance is bellow.
@@ -58,7 +58,7 @@ export class Server {
 
 	/** Private Method dedicated for configuring routing of application. */
 	private routing() {
-		this.core.use('/projects', new ProjectRouter().router)
+		this.core.use('/projects', new ProjectService().router)
 	}
 
 	/** Error Handling Method, dedicated for services like Sentry. */

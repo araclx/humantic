@@ -1,7 +1,8 @@
-import { Project, Technology } from '@humantic/model'
 import algoliasearch from 'algoliasearch'
+import { Project } from 'projects/model'
 import signale from 'signale'
-import { ALGORIA_API, NODE_ENV } from './env'
+import { Technology } from 'technologies/model'
+import { ALGORIA_API, NODE_ENV } from '../../../utils/env'
 
 const client = algoliasearch('6PQCRW9MWF', ALGORIA_API)
 const logger = signale.scope('algoria')

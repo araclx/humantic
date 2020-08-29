@@ -1,6 +1,6 @@
 import * as Minio from 'minio'
 import signale from 'signale'
-import { MINIO_HOST, MINIO_PRIVATEKEY, MINIO_PUBLICKEY, NODE_ENV } from './env'
+import { MINIO_HOST, MINIO_PRIVATEKEY, MINIO_PUBLICKEY, NODE_ENV } from 'utils/env'
 
 const minioClient = new Minio.Client({
 	endPoint: MINIO_HOST,

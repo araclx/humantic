@@ -1,7 +1,8 @@
 /* eslint-disable no-warning-comments */
 import { Request, Response } from 'express'
-import { Project } from '../models'
-import { projectIndex } from '../utils/algoria'
+import { createNewProject, fetchAllProjects, findSingleProjectById } from 'projects/actions'
+import { projectIndex } from '../interfaces/http/services/algoria'
+import { Project } from './model'
 
 export class ProjectController {
 	/**
@@ -11,19 +12,12 @@ export class ProjectController {
 	 */
 
 	public async getAll(request: Request, response: Response) {
-		const projects = await Project.find()
+		const projects = fetchAllProjects()
 		response.json({ data: projects }).status(200)
 	}
 
-	// TODO: GetProject Method which will search for project with specified ID.
 	public async getSingle(request: Request, response: Response) {
-		// TODO(HUM-1): Create an method which will automatically search
-		// description constained in request.body, with database request to
-		// Technologies entity.
-
-		const project = await Project.findOne({
-			_id: request.params.id,
-		})
+		const project = findSingleProjectById(request.params.id)
 
 		if (project === null) {
 			response.status(404).json({
@@ -42,17 +36,11 @@ export class ProjectController {
 	public async createOne(request: Request, response: Response) {
 		// TODO: This request should be associated with JWT and automatically add creator of project to actually logged user.
 
-		const newProject = new Project(request.body)
+		const createdProject = createNewProject(request.body)
+		response.json({ data: createdProject }).status(200)
 
 		try {
-			await newProject.save()
-			response.json({ data: newProject }).status(200)
-		} catch (error) {
-			response.json({ err: error })
-		}
-
-		try {
-			await projectIndex.saveObject(newProject, {
+			await projectIndex.saveObject(createdProject, {
 				autoGenerateObjectIDIfNotExist: true,
 			})
 		} catch (error) {

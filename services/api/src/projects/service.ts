@@ -1,12 +1,10 @@
-import { ProjectController } from '@humantic/controller'
 import { Router } from 'express'
+import { ProjectController } from './contoller'
 
-export class ProjectRouter {
+export class ProjectService {
 	public router: Router
 	public controller: ProjectController = new ProjectController()
-	/**
-	 *
-	 */
+
 	constructor() {
 		// eslint-disable-next-line new-cap
 		this.router = Router()
