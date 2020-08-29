@@ -12,12 +12,12 @@ export class ProjectController {
 	 */
 
 	public async getAll(request: Request, response: Response) {
-		const projects = fetchAllProjects()
+		const projects = await fetchAllProjects()
 		response.json({ data: projects }).status(200)
 	}
 
 	public async getSingle(request: Request, response: Response) {
-		const project = findSingleProjectById(request.params.id)
+		const project = await findSingleProjectById(request.params.id)
 
 		if (project === null) {
 			response.status(404).json({
@@ -36,8 +36,8 @@ export class ProjectController {
 	public async createOne(request: Request, response: Response) {
 		// TODO: This request should be associated with JWT and automatically add creator of project to actually logged user.
 
-		const createdProject = createNewProject(request.body)
-		response.json({ data: createdProject }).status(200)
+		const createdProject = await createNewProject(request.body)
+		response.status(201).json({ data: createdProject })
 
 		try {
 			await projectIndex.saveObject(createdProject, {
