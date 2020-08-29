@@ -13,7 +13,7 @@ https://aralcx.invisionapp.com/console/share/5B1G4RAV8R
 ## Usage (Back-End Dev)
 
 ```bash
-docker-compose -f ".docker/docker-compose.local.yaml" up -d --build --remove-orphans
+docker-compose -f "docker-compose.local.yaml" up -d --build --remove-orphans
 yarn start
 ```
 
