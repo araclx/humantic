@@ -4,13 +4,13 @@ import cors from 'cors'
 import errorhandler from 'errorhandler'
 import express from 'express'
 import getport from 'get-port'
-import { prepareAlgolia } from 'interfaces/http/services/algoria'
-import { prepareMinio } from 'interfaces/http/services/minio'
-import mongoose from 'mongoose'
+import { algoliaService } from 'interfaces/http/services/algoria'
+import { minioService } from 'interfaces/http/services/minio'
+import { mongooseService } from 'interfaces/http/services/mongoose'
 import morgan from 'morgan'
 import { ProjectService } from 'projects/service'
 import signale from 'signale'
-import { HOST, isDevelopment, MONGODB_URI, NODE_ENV, PORT } from 'utils/env'
+import { HOST, isDevelopment, NODE_ENV, PORT } from 'utils/env'
 
 /**
  * Main Server Class which introduces all of application middleware, routers, error handlers and workers. Suggested usage of new clas instance is bellow.
@@ -28,8 +28,7 @@ export class Server {
 		this.middleware()
 		this.errorHandling()
 		this.routing()
-		// eslint-disable-next-line @typescript-eslint/no-floating-promises
-		this.database()
+		this.services()
 	}
 
 	/** Method that starts Server class. */
@@ -42,7 +41,7 @@ export class Server {
 				font: 'block',
 				align: 'left',
 			})
-			signale.success(`Humantic(${NODE_ENV}) Listening on http://${HOST}:${appPORT}`)
+			signale.success(`(${NODE_ENV}) listening on http://${HOST}:${appPORT}`)
 		})
 	}
 
@@ -71,50 +70,11 @@ export class Server {
 			)
 	}
 
-	/** Database Connection with usage of TypeORM. */
-	private async database() {
-		const dblog = signale.scope('mongodb')
-
-		if (NODE_ENV === 'CI') dblog.disable()
-
-		mongoose.connection.on('connected', () => {
-			dblog.success('HumanticDB: Connected to database.')
-		})
-		mongoose.connection.on('reconnected', () => {
-			dblog.success('HumanticDB: Reconnected to database.')
-		})
-		mongoose.connection.on('disconected', () => {
-			dblog.warn('HumanticDB: Disconected from database.')
-			dblog.info('HumanticDB: Reconnecting to database...')
-			setTimeout(() => {
-				// eslint-disable-next-line @typescript-eslint/no-floating-promises
-				mongoose.connect(MONGODB_URI, {
-					keepAlive: true,
-					socketTimeoutMS: 3000,
-					connectTimeoutMS: 3000,
-					useUnifiedTopology: true,
-					useNewUrlParser: true,
-				})
-			}, 3000)
-		})
-		mongoose.connection.on('close', () => {
-			dblog.log('HumanticDB: Connection closed.')
-		})
-		mongoose.connection.on('error', (error) => {
-			dblog.error('HumanticDB: Database error \n', error)
-		})
-
-		await mongoose
-			.connect(MONGODB_URI, {
-				keepAlive: true,
-				useUnifiedTopology: true,
-				useNewUrlParser: true,
-			})
-			.catch((error) => {
-				signale.error('HumanticDB: Database error \n', error)
-			})
-
-		await prepareAlgolia()
-		prepareMinio()
+	/** Private method dedicated for running 3rd-party services that are
+	 * required to run server. */
+	private async services() {
+		await mongooseService()
+		await algoliaService()
+		minioService()
 	}
 }

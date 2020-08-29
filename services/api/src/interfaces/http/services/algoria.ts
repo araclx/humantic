@@ -13,7 +13,7 @@ export const userIndex = client.initIndex('users')
 export const projectIndex = client.initIndex('projects')
 export const technologyIndex = client.initIndex('technologies')
 
-export async function prepareAlgolia() {
+export async function algoliaService() {
 	logger.info('preparing algolia...')
 
 	const projects = await Project.find().then((data) => {

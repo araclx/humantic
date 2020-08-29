@@ -14,7 +14,7 @@ const logger = signale.scope('minio')
 
 if (NODE_ENV === 'CI') logger.disable()
 
-export function prepareMinio() {
+export function minioService() {
 	// Check actual instance of humantic-projects, and if there is no such bucket create a new one.
 	minioClient.bucketExists('humantic-projects', function (err, exist) {
 		if (err) logger.error(err)
