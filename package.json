@@ -1,8 +1,8 @@
 {
-	"name": "@araclx/humantic",
+	"name": "@araclx/humwrk",
 	"version": "1.0.0",
 	"private": true,
-	"description": "No-code repository considered as a bare template for TypeScript applications, which includes code-related things such as linters, documentation, and other shit that you setup in every new repository. ",
+	"description": "Next-generation platform dedicated for freelancers, dedicated mostly for programmers maybe with future support for graphic designers.",
 	"repository": "https://github.com/ARACLX/humantic.git",
 	"license": "MIT",
 	"author": "Jakub Olan <jakub.olan001@gmail.com>",
