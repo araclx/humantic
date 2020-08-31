@@ -44,7 +44,7 @@ jobs:
           app-dir: ~/humantic/services/api
           pkg-manager: yarn
       - run: cd ~/humantic/services/api
-      - rub: yarn build
+      - run: yarn build
       - run: yarn test:unit
       - run: yarn test:cov
       - run: cd ~/humantic
