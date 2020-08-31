@@ -18,8 +18,11 @@ orbs:
 executors:
   node:
     docker:
-      - image: cimg/base:2020.01
+      - image: cimg/node:12.18.2
       - image: circleci/mongo:latest
+
+# There we would like to have also matrix testing to automatically
+# test our code on newest Node.js version isnstead LTS.
 
 jobs:
   build:
@@ -27,17 +30,23 @@ jobs:
     executor: node
     steps:
       - checkout
-      - node/install:
-          install-yarn: true
-          lts: true
       - node/install-yarn
-      - run: node --version
-      - run: yarn --version
+      # Install packages from main directory (just in case)
       - node/install-packages:
           app-dir: ~/humantic
           pkg-manager: yarn
-      - run: yarn build
+      # Install packages at UI Directory
+      - node/install-packages:
+          app-dir: ~/humantic/services/ui
+          pkg-manager: yarn
+      # Install packages at API Directory
+      - node/install-packages:
+          app-dir: ~/humantic/services/api
+          pkg-manager: yarn
+      - run: cd ~/humantic/services/api
+      - rub: yarn build
       - run: yarn test:unit
       - run: yarn test:cov
+      - run: cd ~/humantic
       - codecov/upload
       - codacy/send_report
