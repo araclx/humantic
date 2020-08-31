@@ -35,10 +35,6 @@ jobs:
       - node/install-packages:
           app-dir: ~/humantic
           pkg-manager: yarn
-      # Install packages at UI Directory
-      - node/install-packages:
-          app-dir: ~/humantic/services/ui
-          pkg-manager: yarn
       # Install packages at API Directory
       - node/install-packages:
           app-dir: ~/humantic/services/api
@@ -47,6 +43,12 @@ jobs:
       - run: yarn build
       - run: yarn test:unit
       - run: yarn test:cov
+      # Install packages at UI Directory
+      - node/install-packages:
+          app-dir: ~/humantic/services/ui
+          pkg-manager: yarn
+      - run: cd ~/humantic/services/ui
+      - run: yarn build
       - run: cd ~/humantic
       - codecov/upload
       - codacy/send_report
