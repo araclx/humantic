@@ -1,11 +1,12 @@
 const configuration = {
-	files: ['tests/**/*'],
+	Files: ['tests/**/*'],
 	failFast: true,
 	failWithoutAssertions: false,
-	verbose: false,
-	concurrency: 2,
+	verbose: true,
+	concurrency: 8,
 	tap: false,
 	cache: true,
+	timeout: '30s',
 	extensions: ['ts'],
 	require: ['ts-node/register', 'tsconfig-paths/register'],
 	environmentVariables: {
