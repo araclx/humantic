@@ -29,10 +29,3 @@ test.serial('GET /projects should return 200 statusCode', async (t) => {
 	})
 	t.is(request.statusCode, 200)
 })
-
-test.serial('POST /projects should create a new project', async (t) => {
-	const request = await got.post('projects', {
-		prefixUrl: t.context.prefixUrl,
-	})
-	t.is(request.statusCode, 201)
-})
