@@ -1,4 +1,4 @@
-# humantic/gateway:latest
+# humantic/api:latest
 #
 # VERSION         0.0.1
 # VENDOR          Araclx Inc.
@@ -23,7 +23,7 @@ HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD curl 
 USER root
 
 # Container DotENV Configuration
-ENV NODE_ENV 'development'
+ENV NODE_ENV 'production'
 
 # Install Application Dependencies
 COPY package.json .
