@@ -1,1 +1,8 @@
 node_modules/
+
+# Prevent from chaging repository configuration
+.prettierrc.js
+.xo-config.js
+.releaserc.json
+.huskyrc.js
+commitlint.config.js
