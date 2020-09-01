@@ -1,9 +1,9 @@
 import React from 'react'
 import { Meteor } from 'meteor/meteor'
 import { render } from 'react-dom'
-import { App } from '../../app/ui/app'
+import { Index } from '../../app/ui'
 
 Meteor.startup(() => {
 	// eslint-disable-next-line no-undef
-	render(<App />, document.querySelector('#root'))
+	render(<Index />, document.querySelector('#root'))
 })
