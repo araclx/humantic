@@ -22,11 +22,6 @@
 		"noFallthroughCasesInSwitch": false,
 
 		/* Module Resolution Options */
-		"baseUrl": "./src",
-		"paths": {
-			/* Support absolute /imports/* with a leading '/' */
-			"/*": ["*"]
-		},
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
 		"types": ["node", "mocha"],

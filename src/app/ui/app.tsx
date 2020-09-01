@@ -1,6 +1,6 @@
 import React from 'react'
-import { Hello } from './Hello'
-import { Info } from './Info'
+import { Hello } from './atoms/hello'
+import { Info } from './atoms/info'
 
 class Index extends React.Component {
 	render() {
