@@ -1,3 +1,5 @@
+<img src="./docs/assets/banner.png" alt="banner" width="100%" />
+
 Freelancing Platform that connects people with people and companies with people to make hiring right guns for right jobs
 in few seconds, this platform aims to be (going through stereotypes) indie-free because personally I don't belive in
 people who have 30 years of experience and can developer everything with 15 different programming languages.
