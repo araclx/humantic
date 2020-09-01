@@ -19,12 +19,8 @@ types:
       deadline?: date-only
       state?: string
       milestones: array(string)
-/workflow:
-  displayName: Workflows
-  description: >-
-    Workflows are related to posting new projects, attaching milestones and
-    managing states of projects at glance.
-  /projects:
+
+/projects:
     post:
       body:
         application/json:
@@ -36,12 +32,30 @@ types:
           body:
             application/json:
               example:
-                message: Created new project
+                data:
+                  header: "Node.js Developer"
     get:
       responses:
         '200':
           body:
             application/json:
-              type: Project
-  post: null
-  get: null
+              type: array(Project)
+    /:id:
+      get:
+        responses:
+          200:
+            body:
+              application/json:
+                type: Project
+          404:
+            body:
+              application/json:
+                error: "Project was not found"
+        queryParameters:
+          id: string
+        body:
+          application/json:
+            schema: Project
+            type: Project
+      patch:
+      delete:
