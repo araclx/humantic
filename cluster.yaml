@@ -1,5 +1,0 @@
-apps:
-  - script: ./packages/service-api/dist/index.js
-    name: 'api-gateway'
-    instances: -1
-    watch: true

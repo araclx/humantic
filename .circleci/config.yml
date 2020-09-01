@@ -31,24 +31,10 @@ jobs:
     steps:
       - checkout
       - node/install-yarn
-      # Install packages from main directory (just in case)
+      - run: curl https://install.meteor.com/ | sh
       - node/install-packages:
           app-dir: ~/humantic
           pkg-manager: yarn
-      # Install packages at API Directory
-      - node/install-packages:
-          app-dir: ~/humantic/services/api
-          pkg-manager: yarn
-      - run: cd ~/humantic/services/api
-      - run: yarn build
-      - run: yarn test:unit
-      - run: yarn test:cov
-      # Install packages at UI Directory
-      - node/install-packages:
-          app-dir: ~/humantic/services/ui
-          pkg-manager: yarn
-      - run: cd ~/humantic/services/ui
-      - run: yarn build
-      - run: cd ~/humantic
-      - codecov/upload
-      - codacy/send_report
+      - run: yarn test
+      # - codecov/upload
+      # - codacy/send_report

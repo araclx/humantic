@@ -1,42 +1,49 @@
 {
-	"name": "@araclx/humwrk",
-	"version": "1.0.0",
-	"private": true,
-	"description": "Next-generation platform dedicated for freelancers, dedicated mostly for programmers maybe with future support for graphic designers.",
-	"repository": "https://github.com/ARACLX/humantic.git",
-	"license": "MIT",
-	"author": "Jakub Olan <jakub.olan001@gmail.com>",
-	"main": "index.js",
-	"scripts": {
-		"build": "lerna run build",
-		"build:watch": "lerna run build:watch --parallel --no-bail",
-		"postinstall": "lerna bootstrap --ignore-prepublish",
-		"prestart": "yarn build",
-		"start": "pm2 start cluster.yaml && yarn build:watch",
-		"test": "lerna run test",
-		"test:cov": "lerna run test:cov",
-		"test:lint": "lerna run test:lint --stream",
-		"test:unit": "lerna run test:unit"
-	},
-	"devDependencies": {
-		"@araclx/husky-config": "^0.0.14",
-		"@araclx/prettier-config": "^0.0.12",
-		"@araclx/semantic-release": "0.1.6-alpha.0",
-		"@araclx/xo-config": "0.0.1-alpha.0",
-		"@types/eslint-plugin-prettier": "3.1.0",
-		"@types/prettier": "2.0.2",
-		"@types/semantic-release": "17.1.0",
-		"@types/xo": "0.28.0",
-		"eslint-config-xo-react": "^0.23.0",
-		"eslint-plugin-prettier": "3.1.4",
-		"eslint-plugin-react": "^7.20.6",
-		"eslint-plugin-react-hooks": "^4.1.0",
-		"husky": "4.2.5",
-		"lerna": "3.22.1",
-		"pm2": "^4.4.0",
-		"prettier": "2.0.5",
-		"prettier-plugin-packagejson": "^2.2.5",
-		"semantic-release": "17.1.1",
-		"xo": "0.33.0"
-	}
+  "name": "@araclx/humwrk",
+  "private": true,
+  "scripts": {
+    "start": "meteor run",
+    "test": "meteor test --once --driver-package meteortesting:mocha",
+    "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
+    "visualize": "meteor --production --extra-packages bundle-visualizer"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.10.5",
+    "meteor-node-stubs": "^1.0.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@araclx/husky-config": "^0.0.14",
+    "@araclx/prettier-config": "^0.0.12",
+    "@araclx/semantic-release": "0.1.6-alpha.0",
+    "@araclx/xo-config": "0.0.1-alpha.0",
+    "@types/eslint-plugin-prettier": "3.1.0",
+    "@types/prettier": "2.0.2",
+    "@types/semantic-release": "17.1.0",
+    "@types/xo": "0.28.0",
+    "eslint-config-xo-react": "^0.23.0",
+    "eslint-plugin-prettier": "3.1.4",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.0",
+    "husky": "4.2.5",
+    "lerna": "3.22.1",
+    "pm2": "^4.4.0",
+    "prettier": "2.0.5",
+    "prettier-plugin-packagejson": "^2.2.5",
+    "semantic-release": "17.1.1",
+    "xo": "0.33.0",
+    "@types/meteor": "^1.4.48",
+    "@types/mocha": "^8.0.0",
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
+    "typescript": "^3.9.7"
+  },
+  "meteor": {
+    "mainModule": {
+      "client": "src/interfaces/client/main.tsx",
+      "server": "src/interfaces/server/main.ts"
+    },
+    "testModule": "tests/main.ts"
+  }
 }
