@@ -1,0 +1,47 @@
+#%RAML 1.0
+title: HumwrkSystem
+version: v1
+baseUri: 'http://api.humwrk.com'
+description: General API Related to Humantic Project
+types:
+  Project:
+    type: object
+    properties:
+      header: string
+      description: string
+      technology: array(string)
+      reqiurements: array(string)
+      assignedTo?: array(string)
+      applicants?: array(string)
+      isFixed: boolean
+      budget?: number
+      rate?: number
+      deadline?: date-only
+      state?: string
+      milestones: array(string)
+/workflow:
+  displayName: Workflows
+  description: >-
+    Workflows are related to posting new projects, attaching milestones and
+    managing states of projects at glance.
+  /projects:
+    post:
+      body:
+        application/json:
+          schema: Project
+          type: Project
+          isAnnotation: false
+      responses:
+        201:
+          body:
+            application/json:
+              example:
+                message: Created new project
+    get:
+      responses:
+        '200':
+          body:
+            application/json:
+              type: Project
+  post: null
+  get: null
