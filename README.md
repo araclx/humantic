@@ -1,21 +1,19 @@
-# humantic
+Freelancing Platform that connects people with people and companies with people to make hiring right guns for right jobs
+in few seconds, this platform aims to be (going through stereotypes) indie-free because personally I don't belive in
+people who have 30 years of experience and can developer everything with 15 different programming languages.
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ab01f318210c444daedb491e04bf39eb)](https://app.codacy.com/gh/araclx/humantic?utm_source=github.com&utm_medium=referral&utm_content=araclx/humantic&utm_campaign=Badge_Grade_Dashboard)
+> Humantic will launch potentially at Q1 2021, meanwhile I would like to recommend you [Toptal](https://www.toptal.com/)
 
-Platform designed for developers to find a perfectly matched job with their profile backed by AI. Generally can be
-considered as a fair UpWork alternative.
+## About Humantic
 
-## Design of Platform
+### Story about Humantic
 
-UI of whole platform is under design process, and actual prototype is available at
-https://aralcx.invisionapp.com/console/share/5B1G4RAV8R
-
-## Usage (Back-End Dev)
-
-```bash
-docker-compose -f "docker-compose.local.yaml" up -d --build --remove-orphans
-yarn start
-```
+Founder of Araclx, [Jakub Olan](https://github.com/ZiQiLN) was an freelancer and know common issues on freelancing
+platforms available on market (only Toptal works, but always when I was scheduling meeting there I didn't had time or
+something, never gone through intial talk because I had no time), they are a bit out of whole idea, Freelancing is like
+being a The Witcher irl, you're taking an offer, completing that on time, delivering proof and then going through your
+way - that's an freelancing that I like, the idea is simple. In Humantic I would like to realize that maybe a bit wierd
+idea about freelancing, basically I don't have money to buy bids on UpWork or something so I've decided to build my own.
 
 ## Contributing
 
