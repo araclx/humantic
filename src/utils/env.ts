@@ -1,31 +1,33 @@
-import dotenv from 'dotenv'
-import path from 'path'
-
 import { isDevelopmentCheck, isCICheck, isProductionCheck } from './env-helpers'
 
-dotenv.config()
+import dotenv from 'dotenv'
 
-export const NODE_ENV = process.env.NODE_ENV! || 'development'
-export const HOST = process.env.HOST! || 'localhost'
-// eslint-disable-next-line radix
-export const PORT = Number.parseInt(process.env.HUMANTIC_PORT!) || 3600
+export function configureDotenv() {
+	const variables = dotenv.config({
+		// eslint-disable-next-line @typescript-eslint/restrict-plus-operands
+		path: process.env.PWD + '/.env',
+	})
+	return variables
+}
+
+export const NODE_ENV = configureDotenv().parsed!.NODE_ENV! || 'development'
+export const HOST = configureDotenv().parsed!.HOST! || 'localhost'
 
 // Auth0 Configuration
-// Dotenv actally have some problems with resolving variables in .env, I'll look into that later.
-export const AUTH0_DOMAIN = process.env.AUTH0_DOMAIN!
-export const AUTH0_CLIENTID = process.env.AUTH0_CLIENTID!
-export const AUTH0_AUDIENCE = process.env.AUTH0_AUDIENCE!
+export const AUTH0_DOMAIN = configureDotenv().parsed!.AUTH0_DOMAIN!
+export const AUTH0_CLIENTID = configureDotenv().parsed!.AUTH0_CLIENTID!
+export const AUTH0_AUDIENCE = configureDotenv().parsed!.AUTH0_AUDIENCE!
 
 // Algolia Configuration
-export const ALGORIA_API = process.env.ALGORIA_API!
+export const ALGORIA_API = configureDotenv().parsed!.ALGORIA_API!
 
 // Database Configuration
-export const MONGODB_URI = process.env.MONGODB_URI! || 'mongodb://localhost'
+export const MONGO_URL = configureDotenv().parsed!.MONGO_URL! || 'mongodb://localhost'
 
 // Object Storage Configuration
-export const MINIO_HOST = process.env.MINIO_HOST! || 'localhost'
-export const MINIO_PUBLICKEY = process.env.MINIO_PUBLICKEY!
-export const MINIO_PRIVATEKEY = process.env.MINIO_PRIVATEKEY!
+export const MINIO_HOST = configureDotenv().parsed!.MINIO_HOST! || 'localhost'
+export const MINIO_PUBLICKEY = configureDotenv().parsed!.MINIO_PUBLICKEY!
+export const MINIO_PRIVATEKEY = configureDotenv().parsed!.MINIO_PRIVATEKEY!
 
 // ENV-based Helpers to simplify Lifecycle
 export const isDevelopment = isDevelopmentCheck()
