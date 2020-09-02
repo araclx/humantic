@@ -8,6 +8,7 @@
 		"visualize": "meteor --production --extra-packages bundle-visualizer"
 	},
 	"dependencies": {
+		"@auth0/auth0-react": "^1.0.0",
 		"@babel/runtime": "^7.10.5",
 		"dotenv": "^8.2.0",
 		"history": "^5.0.0",

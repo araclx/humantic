@@ -1,5 +1,7 @@
 import dotenv from 'dotenv'
-import { isDevelopmentCheck } from './env-helpers'
+import path from 'path'
+
+import { isDevelopmentCheck, isCICheck, isProductionCheck } from './env-helpers'
 
 dotenv.config()
 
@@ -9,7 +11,9 @@ export const HOST = process.env.HOST! || 'localhost'
 export const PORT = Number.parseInt(process.env.HUMANTIC_PORT!) || 3600
 
 // Auth0 Configuration
+// Dotenv actally have some problems with resolving variables in .env, I'll look into that later.
 export const AUTH0_DOMAIN = process.env.AUTH0_DOMAIN!
+export const AUTH0_CLIENTID = process.env.AUTH0_CLIENTID!
 export const AUTH0_AUDIENCE = process.env.AUTH0_AUDIENCE!
 
 // Algolia Configuration
@@ -25,3 +29,5 @@ export const MINIO_PRIVATEKEY = process.env.MINIO_PRIVATEKEY!
 
 // ENV-based Helpers to simplify Lifecycle
 export const isDevelopment = isDevelopmentCheck()
+export const isProduction = isProductionCheck()
+export const isCI = isCICheck()
