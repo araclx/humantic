@@ -30,8 +30,6 @@ jobs:
   build:
     working_directory: ~/humantic
     executor: node
-    post-steps:
-      - jira/notify
     steps:
       - checkout
       - node/install-yarn
@@ -42,5 +40,6 @@ jobs:
       - run: yarn build
       - run: yarn test
       - slack/status
+      - jira/notify
       # - codecov/upload
       # - codacy/send_report
