@@ -21,13 +21,17 @@ HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD curl 
 # Container User with root permissions
 USER root
 
+# Install curl
+RUN apk --no-cache add curl bash
+
 # Install Meteor Framework
+RUN curl https://install.meteor.com/ | sh
 
 # Container DotENV Configuration
 ENV NODE_ENV 'production'
 
 # Install Application Dependencies
-COPY package.json .
+COPY package.json yarn.lock ./
 RUN yarn install
 
 # Copy source of application
@@ -40,6 +44,6 @@ RUN yarn build
 USER node
 
 # Application Entrypoint
-EXPOSE 3600/tcp
+EXPOSE 3000/tcp
 ENTRYPOINT ["node"]
-CMD [ "dist/index.js" ]
+CMD [ "dist" ]

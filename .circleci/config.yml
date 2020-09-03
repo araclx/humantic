@@ -14,12 +14,14 @@ orbs:
   docker: circleci/docker@1.4.0
   codecov: codecov/codecov@1.1.1
   codacy: codacy/coverage-reporter@11.2.1
+  slack: circleci/slack@3.4.2
+  jira: circleci/jira@1.0.5
 
 executors:
   node:
     docker:
       - image: cimg/node:12.18.2
-      - image: circleci/mongo:latest
+      # - image: circleci/mongo:latest
 
 # There we would like to have also matrix testing to automatically
 # test our code on newest Node.js version isnstead LTS.
@@ -35,6 +37,9 @@ jobs:
       - node/install-packages:
           app-dir: ~/humantic
           pkg-manager: yarn
+      - run: yarn build
       - run: yarn test
+      - slack/status
+      - jira/notify
       # - codecov/upload
       # - codacy/send_report
