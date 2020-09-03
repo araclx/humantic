@@ -6,5 +6,5 @@ node_modules
 .kubernetes
 .vscode
 docs
-tests
+dist
 .gitignore
