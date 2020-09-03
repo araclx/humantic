@@ -32,7 +32,7 @@ RUN sh installMeteor.sh
 ENV NODE_ENV 'production'
 
 # Install Application Dependencies
-COPY package.json .
+COPY package.json yarn.lock ./
 RUN yarn install
 
 # Copy source of application
