@@ -35,6 +35,7 @@ jobs:
       - node/install-packages:
           app-dir: ~/humantic
           pkg-manager: yarn
+      - run: yarn build
       - run: yarn test
       # - codecov/upload
       # - codacy/send_report
