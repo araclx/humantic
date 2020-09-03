@@ -3,23 +3,14 @@
 version: '3.8'
 
 services:
-  ui:
-    container_name: humantic-ui
+  application:
+    container_name: humantic
     build:
-      context: ../services/ui
-      dockerfile: .docker/Dockerfile
-    image: humanitc/ui
+      context: .
+      dockerfile: Dockerfile
+    image: humwrk/humwrk:dev
     ports:
-      - 80:80
-
-  api:
-    container_name: humantic-api
-    build:
-      context: ../services/api
-      dockerfile: .docker/Dockerfile
-    image: humantic/api
-    ports:
-      - 3600:3600
+      - 80:3000
 
   mongodb:
     container_name: humantic-mongodb
