@@ -38,12 +38,11 @@ RUN yarn install
 COPY . .
 
 # Build files
-RUN yarn build
+# RUN yarn build
 
 # Use non-root user for process
 USER node
 
 # Application Entrypoint
 EXPOSE 3000/tcp
-ENTRYPOINT ["node"]
-CMD [ "dist" ]
+CMD [ "meteor", "start" ]
