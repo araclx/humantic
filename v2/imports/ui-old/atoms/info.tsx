@@ -1,8 +1,8 @@
 import React from 'react'
 import { useTracker } from 'meteor/react-meteor-data'
-import { LinksCollection, Link } from '../../links/links'
+import { LinksCollection, Link } from '../../../../src/app/links/links'
 import { fetchAllProjects } from '../../projects/actions'
-import { Project } from '../../projects/model'
+import { Project } from '../../projects/repository'
 
 export const Info = () => {
 	const projects = useTracker(() => {

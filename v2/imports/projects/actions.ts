@@ -1,4 +1,4 @@
-import { ProjectCollection, Project } from './model'
+import { ProjectCollection, Project } from './repository'
 
 export function createProject(payload: Project) {
 	ProjectCollection.insert(payload)

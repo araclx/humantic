@@ -9,7 +9,7 @@ import { Auth0Provider } from '@auth0/auth0-react'
 import { Hello } from './atoms/hello'
 import { Info } from './atoms/info'
 
-import { AUTH0_CLIENTID, AUTH0_DOMAIN } from '../../utils/env'
+import { AUTH0_CLIENTID, AUTH0_DOMAIN } from '../util/env'
 
 const browserHistory = createBrowserHistory()
 

@@ -22,7 +22,7 @@
     "noFallthroughCasesInSwitch": false,
 
     /* Module Resolution Options */
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
       /* Support absolute /imports/* with a leading '/' */
       "/*": ["*"]
