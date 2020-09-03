@@ -46,6 +46,8 @@ RUN yarn install
 # Copy source of application
 COPY . .
 
+# Create worker and directories
+# Additionally add permissions
 RUN useradd -ms /bin/bash node && \
     mkdir .meteor/local && \
     mkdir /usr/src/humantic/dist && \
@@ -58,7 +60,12 @@ USER node
 # Build files
 RUN yarn build
 
-# Unpack Build and start files
-RUN tar -zxf dist/humantic.tar.gz
+# TODO: Nginx Configuration
+
+# Unpack Build  and install deps
+RUN tar -zxf dist/humantic.tar.gz && \
+    cd ~/usr/src/humantic/bundle/programs/server && \
+    yarn install && cd ~/usr/src/humantic/
+
 EXPOSE 3000/tcp
-CMD ["node", "bundle/main.js"]
+CMD ["forever", "start", "bundle/main.js"]
