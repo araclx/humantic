@@ -22,7 +22,8 @@ HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD curl 
 USER root
 
 # Install Meteor Framework
-RUN curl https://install.meteor.com/ | sh 
+ADD https://install.meteor.com/ installMeteor.sh
+RUN sh installMeteor.sh
 
 # Container DotENV Configuration
 ENV NODE_ENV 'production'

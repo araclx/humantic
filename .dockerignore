@@ -1,0 +1,9 @@
+node_modules
+.circleci
+.devcontainer
+.github
+.kubernetes
+.vscode
+docs
+tests
+.gitignore
