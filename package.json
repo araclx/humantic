@@ -2,6 +2,7 @@
 	"name": "@araclx/humwrk",
 	"private": true,
 	"scripts": {
+		"build": "meteor build dist",
 		"start": "meteor run",
 		"test": "meteor test --once --driver-package meteortesting:mocha",
 		"test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
