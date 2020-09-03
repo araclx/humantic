@@ -22,7 +22,7 @@ HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD curl 
 USER root
 
 # Install curl
-RUN apk --no-cache add curl
+RUN apk --no-cache add curl bash
 
 # Install Meteor Framework
 ADD https://install.meteor.com/ installMeteor.sh
