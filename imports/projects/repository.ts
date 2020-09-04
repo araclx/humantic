@@ -11,6 +11,7 @@ export interface Project {
 	// People connected with project
 	founder: string
 	managers: string[]
+	applicationLimiter: number
 	applications: string[]
 	assignedTo?: string[]
 
@@ -19,6 +20,9 @@ export interface Project {
 	budget?: number
 	deadline?: number
 	rate?: number
+
+	// Metadata
+	technologies: string[]
 }
 
 export const ProjectCollection = new Mongo.Collection<Project>('projects')
