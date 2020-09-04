@@ -1,29 +1,45 @@
 version: 2.1
 
+# Required Environment Variables that are used by configuration:
+# CODECOV_TOKEN (Project-based)
+# CODACY_PROJECT_TOKEN (Project-based)
+# NPM_TOKEN (Project-based, can be global)
+# SKIP_PREFLIGHT_CHECK (true)... Damn CRA :/
+#
+# DOCKER_LOGIN
+# DOCKER_PASSWORD
+
 orbs:
- node: circleci/node@3.0.1
+  node: circleci/node@4.0.0
+  docker: circleci/docker@1.4.0
+  codecov: codecov/codecov@1.1.1
+  codacy: codacy/coverage-reporter@11.2.1
+  slack: circleci/slack@3.4.2
+  jira: circleci/jira@1.0.5
 
 executors:
- node:
-  docker:
-   - image: cimg/node:lts
+  node:
+    docker:
+      - image: cimg/node:12.18.2
+      # - image: circleci/mongo:latest
+
+# There we would like to have also matrix testing to automatically
+# test our code on newest Node.js version isnstead LTS.
 
 jobs:
- install:
-  working_directory: ~/noddy
-  executor: node
-  steps:
-   - checkout
-   - node/install:
-      install-yarn: true
-      node-version: lts
-   - run: node --version
-   - run: yarn --version
-   - node/install-packages:
-      app-dir: ~/noddy
-      pkg-manager: yarn
-
-workflows:
- install:
-  jobs:
-   - install
+  build:
+    working_directory: ~/humantic
+    executor: node
+    steps:
+      - checkout
+      - node/install-yarn
+      - run: curl https://install.meteor.com/ | sh
+      - node/install-packages:
+          app-dir: ~/humantic
+          pkg-manager: yarn
+      - run: yarn build
+      - run: yarn test
+      - slack/status
+      - jira/notify
+      # - codecov/upload
+      # - codacy/send_report

@@ -1,0 +1,10 @@
+node_modules
+.meteor/local
+.circleci
+.devcontainer
+.github
+.kubernetes
+.vscode
+docs
+dist
+.gitignore

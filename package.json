@@ -1,20 +1,58 @@
 {
-	"name": "@araclx/noddy",
-	"version": "1.0.0",
-	"description": "No-code repository considered as a bare template for TypeScript applications, which includes code-related things such as linters, documentation, and other shit that you setup in every new repository. ",
-	"main": "index.js",
-	"repository": "https://github.com/ARACLX/noddy.git",
-	"author": "Jakub Olan <jakub.olan001@gmail.com>",
-	"license": "MIT",
+	"name": "humwrk",
 	"private": true,
+	"scripts": {
+		"build": "meteor build dist",
+		"start": "meteor run",
+		"test": "meteor test --once --driver-package meteortesting:mocha",
+		"test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
+		"visualize": "meteor --production --extra-packages bundle-visualizer"
+	},
+	"dependencies": {
+		"@auth0/auth0-react": "^1.0.0",
+		"@babel/runtime": "^7.10.5",
+		"dotenv": "^8.2.0",
+		"history": "^5.0.0",
+		"meteor-node-stubs": "^1.0.1",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+		"react-router": "^5.2.0",
+		"react-router-dom": "^5.2.0"
+	},
 	"devDependencies": {
-		"@araclx/husky-config": "^0.0.12",
-		"@araclx/prettier-config": "^0.0.11",
-		"@araclx/semantic-release": "^0.1.6-alpha.0",
-		"@araclx/xo-config": "^0.0.1-alpha.0",
-		"husky": "^4.2.5",
-		"prettier": "^2.0.5",
-		"semantic-release": "^17.1.1",
-		"xo": "^0.32.1"
+		"@araclx/husky-config": "^0.0.14",
+		"@araclx/prettier-config": "^0.0.12",
+		"@araclx/semantic-release": "0.1.6-alpha.0",
+		"@araclx/tsconfig": "^0.0.11",
+		"@araclx/xo-config": "0.0.1-alpha.0",
+		"@types/eslint-plugin-prettier": "3.1.0",
+		"@types/meteor": "^1.4.48",
+		"@types/mocha": "^8.0.0",
+		"@types/prettier": "2.0.2",
+		"@types/react": "^16.9.43",
+		"@types/react-dom": "^16.9.8",
+		"@types/react-router": "^5.1.8",
+		"@types/react-router-dom": "^5.1.5",
+		"@types/semantic-release": "17.1.0",
+		"@types/xo": "0.28.0",
+		"eslint-config-xo-react": "^0.23.0",
+		"eslint-plugin-prettier": "3.1.4",
+		"eslint-plugin-react": "^7.20.6",
+		"eslint-plugin-react-hooks": "^4.1.0",
+		"husky": "4.2.5",
+		"lerna": "3.22.1",
+		"pm2": "^4.4.0",
+		"prettier": "2.0.5",
+		"prettier-plugin-packagejson": "^2.2.5",
+		"semantic-release": "17.1.1",
+		"typescript": "^3.9.7",
+		"xo": "0.33.0"
+	},
+	"meteor": {
+		"mainModule": {
+			"client": "interfaces/client/main.tsx",
+			"server": "interfaces/server/main.ts"
+		},
+		"testModule": "tests/main.ts"
 	}
 }
