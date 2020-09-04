@@ -1,7 +1,8 @@
 import dotenv from 'dotenv'
 
 dotenv.config({
-    path: `${process.env.PWD}/.env`
+	// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+	path: `${process.env.PWD}/.env`,
 })
 
 import { isDevelopmentCheck, isCICheck, isProductionCheck } from './env-helpers'

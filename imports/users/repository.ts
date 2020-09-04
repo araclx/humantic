@@ -1,19 +1,18 @@
 import { Mongo } from 'meteor/mongo'
 
-export interface Project {
+export interface User {
 	_id?: string
 
 	// Basic informations about project
 	header: string
 	description: string
-	isPublic: boolean
 	state: string
 
 	// People connected with project
 	founder: string
-	managers?: string[]
+	managers: string[]
 	applicationLimiter: number
-	applications?: string[]
+	applications: string[]
 	assignedTo?: string[]
 
 	// Value informations
@@ -26,4 +25,4 @@ export interface Project {
 	technologies: string[]
 }
 
-export const ProjectCollection = new Mongo.Collection<Project>('projects')
+export const UserCollection = new Mongo.Collection<User>('projects')
