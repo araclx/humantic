@@ -4,7 +4,7 @@ import assert from 'assert';
 describe('v2', function () {
   it('package.json has correct name', async function () {
     const { name } = await import('../package.json');
-    assert.strictEqual(name, 'v2');
+    assert.strictEqual(name, 'humwrk');
   });
 
   if (Meteor.isClient) {
