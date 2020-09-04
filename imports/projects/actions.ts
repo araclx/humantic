@@ -1,11 +1,7 @@
 import { ProjectCollection, Project } from './repository'
 
 export function createProject(payload: Project) {
-	if (payload.applicationLimiter > payload.applications.length) {
-		ProjectCollection.insert(payload)
-	} else {
-		return 'Application limit for this project is extended for this project.'
-	}
+	ProjectCollection.insert(payload)
 }
 
 export function fetchAllProjects() {

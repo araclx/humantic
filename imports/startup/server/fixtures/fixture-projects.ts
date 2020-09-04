@@ -1,12 +1,9 @@
-import { Project, ProjectCollection } from '/imports/projects/repository'
-
-function insertProject(project: Project) {
-	ProjectCollection.insert(project)
-}
+import { createProject } from '/imports/projects/actions'
+import { ProjectCollection } from '/imports/projects/repository'
 
 export function projectFixture() {
 	if (ProjectCollection.find().count() === 0) {
-		insertProject({
+		createProject({
 			header: 'Searching Node.js developer for Chat application',
 			description:
 				"We're creating a new chat application and searching Node.js developer that is capable of doing React.js additionally.",
