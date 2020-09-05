@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import { LoginButton, LogoutButton } from './auth'
 import { Profile } from './profile'
-import { Navbar } from './navbar'
+import { Navbar } from '../molecules/navbar.tsx'
 import { Button } from './button'
 
 const Message = styled.h4`
@@ -31,8 +31,9 @@ export const Hello = () => {
 				route.
 			</Message>
 			<Button onClick={increment}>Clicker Increase</Button>
-			<Button>Another one</Button>
-			<Link to='/data'>Hello World</Link>
+			<Link to='/data'>
+				<Button>Projects</Button>
+			</Link>
 			<LoginButton />
 			<LogoutButton />
 			<p>You&apos;ve pressed the button {counter} times.</p>

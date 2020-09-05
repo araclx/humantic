@@ -1,7 +1,7 @@
 import React from 'react'
 import { Meteor } from 'meteor/meteor'
 import { render } from 'react-dom'
-import { Index } from '../../imports/client/ui'
+import { Index } from '../../imports/client/system'
 
 Meteor.startup(() => {
 	// There linter have wierd issue with DOM-related functions
