@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: humwrk
+  labels:
+    app: humwrk
+spec:
+  selector:
+    matchLabels:
+      app: humwrk
+  template:
+    metadata:
+      labels:
+        app: humwrk
+    spec:
+      containers:
+        - name: humwrk
+          image: humwrk/humwrk:dev
+          ports:
+            - containerPort: 3000
