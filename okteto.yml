@@ -1,0 +1,10 @@
+name: humwrk
+labels:
+  app.kubernetes.io/component: humwrk
+image: humwrk/humwrk
+workdir: .
+command: ['bash']
+forward:
+  - 3000:3000
+persistentVolume:
+  enabled: false

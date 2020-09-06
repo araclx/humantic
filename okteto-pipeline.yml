@@ -1,0 +1,5 @@
+icon: https://apps.okteto.com/movies/icon.png
+deploy:
+  - okteto build -t okteto.dev/humwrk:${OKTETO_GIT_COMMIT} humwrk
+devs:
+  - okteto.yml
